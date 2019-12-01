@@ -1,0 +1,10 @@
+{
+    "development":{
+        "PORT":3000,
+        "MONGODB_URI":"mongodb+srv://zjx:Shiny004@cluster0-qu46p.mongodb.net/test?retryWrites=true&w=majority"
+    },
+    "production":{
+        "PORT":80,
+        "MONGODB_URI":"mongodb+srv://zjx:<password>@cluster0-qu46p.mongodb.net/test?retryWrites=true&w=majority"
+    }
+}
