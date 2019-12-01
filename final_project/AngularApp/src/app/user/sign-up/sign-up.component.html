@@ -1,0 +1,31 @@
+<form #signUpForm = "ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)" autocomplete="off">
+    <div class="input-group">
+        <input class="input--style-3" type="text" #email = "ngModel" [(ngModel)]="userService.selectedUser.email" name="email" 
+        placeholder="Enter Email" required [pattern]="emailRegex">
+        <div *ngIf = "signUpForm.submitted && !email.valid">
+            <label *ngIf="email.errors.required" class = "validation-message">Email is required.</label>
+            <label *ngIf="email.errors.pattern" class="validation-message">Invalid Email Address.</label>
+        </div>
+    </div>
+    <div class="input-group">
+        <input class="input--style-3" type="password" #password = "ngModel" [(ngModel)]="userService.selectedUser.password" name="password" 
+        placeholder="Enter password" minlength="4" required=true>
+        <div *ngIf = "signUpForm.submitted && !password.valid">
+            <label *ngIf="password.errors.required" class = "validation-message">Password is required.</label>
+            <label *ngIf="password.errors.minlength" class="validation-message">Please input at least 4 characters.</label>
+        </div>
+    </div>
+    <div class="p-t-10">
+        <button class="btn btn--pill btn--green" type="submit">Submit</button>
+    </div>
+</form>
+
+<!-- Success Message -->
+<div class="success" *ngIf="showSuccessMessage">
+    Saved Successfully!
+</div>
+
+<!-- Error Message -->
+<div class="alert" *ngIf = "serverErrorMessage">
+    {{serverErrorMessage}}
+</div>
