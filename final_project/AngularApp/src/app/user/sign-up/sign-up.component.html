@@ -1,7 +1,14 @@
 <form #signUpForm = "ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)" autocomplete="off">
     <div class="input-group">
+        <input class="input--style-3" type="text" #fullname = "ngModel" [(ngModel)]="userService.selectedUser.fullname" name="fullname" 
+        placeholder="Enter fullname" required=true>
+        <div *ngIf = "signUpForm.submitted && !fullname.valid">
+            <label *ngIf="fullname.errors.required" class = "validation-message">Email is required.</label>
+        </div>
+    </div>
+    <div class="input-group">
         <input class="input--style-3" type="text" #email = "ngModel" [(ngModel)]="userService.selectedUser.email" name="email" 
-        placeholder="Enter Email" required [pattern]="emailRegex">
+        placeholder="Enter Email" required=true [pattern]="emailRegex">
         <div *ngIf = "signUpForm.submitted && !email.valid">
             <label *ngIf="email.errors.required" class = "validation-message">Email is required.</label>
             <label *ngIf="email.errors.pattern" class="validation-message">Invalid Email Address.</label>
