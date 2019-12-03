@@ -25,9 +25,9 @@ export class UserService {
   }
 
   getUserProfile(){
-    return this.http.get(environment.apiBaseUrl+'/userprofile');
+    return this.http.get(environment.apiBaseUrl+'/userProfile');
   }
-  
+
   //Helper Methods
   setToken(token:string){
     localStorage.setItem('token',token);
