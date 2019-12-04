@@ -24,7 +24,7 @@ module.exports.register =async (req,res,next) =>{
       return res.status(403).json({ error: 'Email is already in use'});
     }
 
-    // Is there a Google account with the same email?
+    // Is there a Google account with the same email
     foundUser = await User.findOne({ 
       $or: [
         { "google.email": email },
@@ -49,7 +49,7 @@ module.exports.register =async (req,res,next) =>{
 
   
     // Create a new user
-    const newUser = new User({ 
+    const user = new User({ 
       method: 'local',
       local: {
         fullname:fullname,
@@ -58,10 +58,10 @@ module.exports.register =async (req,res,next) =>{
       }
     });
 
-    await newUser.save();
+    await user.save();
 
     // Generate the token
-    const token = signToken(newUser);
+    const token = signToken(user);
     // Send a cookie containing JWT
     res.cookie('access_token', token, {
       httpOnly: true
