@@ -3,31 +3,46 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 var userSchema = new mongoose.Schema({
-    fullname:{
+    method:{
         type:String,
-        required:'fullname can not be empty!'
+        enum:['local','google'],
+        required:true
     },
-    email:{
-        type:String,
-        required:'email can not be empty!',
-        unique:true
+    local:{
+        fullname:{
+            type:String,
+        },
+        email:{
+            type:String,
+        },
+        password:{
+            type:String,
+            minlength:[4,'Password must be at least 4 characters.']
+        },
+        saltSecret:String
     },
-    password:{
-        type:String,
-        required:'password can not be empty!',
-        minlength:[4,'Password must be at least 4 characters.']
-    },
-    saltSecret:String
+    google:{
+        id:{
+            type:String
+        },
+        email:{
+            type:String
+        }
+    }
 });
 //Custom validation for email
-userSchema.path('email').validate((val) =>{
+userSchema.path('local.email').validate((val) =>{
     emailRegex =/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
     return emailRegex.test(val);
 },'Invalid e-mail.');
+
 //Events
 userSchema.pre('save',function(next){
+    if(this.method !== 'local'){
+        next();
+    }
     bcrypt.genSalt(10,(err,salt) =>{
-        bcrypt.hash(this.password,salt,(err,hash) =>{
+        bcrypt.hash(this.local.password,salt,(err,hash) =>{
             this.password = hash;
             this.saltSecret = salt;
             next();
@@ -37,7 +52,7 @@ userSchema.pre('save',function(next){
 
 //Methods
 userSchema.methods.verifyPassword = function(password){
-    return bcrypt.compareSync(password,this.password);
+    return bcrypt.compareSync(password,this.local.password);
 };
 
 userSchema.methods.generateJwt = function(){
