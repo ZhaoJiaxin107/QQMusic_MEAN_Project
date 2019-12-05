@@ -7,7 +7,7 @@ JWT_SECRETGOOGLE = 'codeworkrauthentication';
 const User = mongoose.model('User');
 signToken = user => {
   return JWT.sign({
-    iss: 'CodeWorkr',
+    iss: 'QQ Music',
     sub: user.id,
     iat: new Date().getTime(), // current time
     exp: new Date().setDate(new Date().getDate() + 1) // current time + 1 day ahead
@@ -17,7 +17,7 @@ signToken = user => {
 module.exports.register =async (req,res,next) =>{
     const fullname = req.body.fullname;
     const email = req.body.email;
-    const password = req.body.passowrd;
+    const password = req.body.password;
     // Check if there is a user with the same email
     let foundUser = await User.findOne({ "local.email": email });
     if (foundUser) { 
@@ -59,8 +59,6 @@ module.exports.register =async (req,res,next) =>{
     });
 
     await user.save();
-
-    // Generate the token
     const token = signToken(user);
     // Send a cookie containing JWT
     res.cookie('access_token', token, {
@@ -88,7 +86,14 @@ module.exports.userProfile = (req,res,next) =>{
       if(!user)
         return res.status(404).json({status:false,message:'User record not found.'});
       else
-        return res.status(200).json({status:true,user:_.pick(user,['fullname','email'])});  
+        return res.status(200).json({status:true,user:_.pick(user,['local.fullname','local.email'])});  
     }
   );
+}
+
+module.exports.googleOAuth = async(req,res,next) =>{
+  console.log('req.user',req.user);
+  const token = signToken(req.user);
+  res.status(200).json({ token });
+
 }

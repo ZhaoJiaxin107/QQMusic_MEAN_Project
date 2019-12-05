@@ -37,17 +37,22 @@ userSchema.path('local.email').validate((val) =>{
 },'Invalid e-mail.');
 
 //Events
-userSchema.pre('save',function(next){
+userSchema.pre('save',async function(next){
     if(this.method !== 'local'){
         next();
     }
-    bcrypt.genSalt(10,(err,salt) =>{
-        bcrypt.hash(this.local.password,salt,(err,hash) =>{
-            this.password = hash;
-            this.saltSecret = salt;
-            next();
-        });
-    });
+    const user = this;
+    //check if the user has been modified to know if the password has already been hashed
+    if (!user.isModified('local.password')) {
+      next();
+    }
+    // Generate a salt
+    const salt = await bcrypt.genSalt(10);
+    // Generate a password hash (salt + hash)
+    const passwordHash = await bcrypt.hash(this.local.password, salt);
+    // Re-assign hashed version over original, plain text password
+    this.local.password = passwordHash;
+    next();
 });
 
 //Methods
