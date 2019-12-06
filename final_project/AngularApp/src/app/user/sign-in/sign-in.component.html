@@ -16,8 +16,15 @@
     <div class="p-t-10">
         <button class="btn btn--pill btn--green" type="submit">Login</button>
     </div>
-</form>
-
+    <div class="p-t-11">
+        <button class="btn btn--pill btn--green" (click)="googlelogin()">Google</button>
+    </div>
+</form >
+<!--Google Information-->
+<div class="p-t-31">
+    <h4 style="color: aliceblue;">{{user.email}}</h4>
+    <h4 style="color: aliceblue;">{{user.name}}</h4>
+</div>
 <!-- Error Meaage-->
 <div class="alert" *ngIf = "serverErrorMessages">
     {{serverErrorMessages}}

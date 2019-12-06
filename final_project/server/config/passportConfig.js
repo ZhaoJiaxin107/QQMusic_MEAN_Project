@@ -27,8 +27,8 @@ passport.use(
 
 //Google OAuth Strategy
 passport.use('googleToken',new GooglePlusTokenStrategy({
-    clientID:'242896001594-3877l947asd85fta2o7ca5o9fcpvijo2.apps.googleusercontent.com',
-    clientSecret:'WxynqIV_ajK65nJD3ZePdk2a'
+    clientID:'242896001594-m6n1m47msroiut12esi21u0pr1o87nt4.apps.googleusercontent.com',
+    clientSecret:'FEyDPAKFgHWdfBd-ZnLaOsnv'
     },async(accessToken,refreshToken,profile,done) =>{
     try{
         console.log('accessToken',accessToken);

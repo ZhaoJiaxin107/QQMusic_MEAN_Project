@@ -2,15 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../shared/user.service';
-
+import { AuthService,SocialUser,GoogleLoginProvider} from 'ng4-social-login';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-
-  constructor(private userService:UserService,private router:Router) { }
+  public user:any = SocialUser;
+  constructor(private userService:UserService,private router:Router,
+    private socialAuthService:AuthService) {}
   model = {
     email:'',
     password:''
@@ -30,5 +31,10 @@ export class SignInComponent implements OnInit {
         this.serverErrorMessages = err.error.message;
       }
     );
+  }
+  googlelogin(){
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((userData)=>{
+      this.user = userData;
+    });
   }
 }

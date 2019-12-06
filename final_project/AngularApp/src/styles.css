@@ -145,11 +145,22 @@
   }
   
   .p-t-10 {
+    float: left;
     padding-top: 10px;
   }
+  .p-t-11 {
+    float: left;
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+  
   
   .p-t-30 {
     padding-top: 30px;
+  }
+  .p-t-31 {
+    margin-top: 100px;
+    margin-left: 30px;
   }
   
   .p-b-100 {
