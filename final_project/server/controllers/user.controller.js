@@ -131,7 +131,7 @@ module.exports.register =async (req,res,next) =>{
 					});
         }
           
-			});
+      });
 			
   }
 
@@ -142,8 +142,10 @@ module.exports.authenticate  = (req,res,next) =>{
     //error from passport middleware
     if(err) return res.status(400).json(err);
     //registered user
-    else if (user) return res.status(200).json({"token":user.generateJwt()});
-    //unknown user or wrong password
+    else if(user.local.active == false) 
+          return res.status(401).json({success: false, message: 'Please contact with administrator!'});
+    else if (user.local.active == true) 
+          return res.status(200).json({"token":user.generateJwt()});
     else return res.status(404).json(info);
   })(req,res);
 }

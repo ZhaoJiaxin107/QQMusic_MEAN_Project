@@ -28,7 +28,10 @@ export class SignInComponent implements OnInit {
         this.router.navigateByUrl('/userprofile');
       },
       err =>{
-        this.serverErrorMessages = err.error.message;
+        if(err.status === 401)
+          this.serverErrorMessages = 'Please contact with admin!';
+        else
+          this.serverErrorMessages = 'Login unsuccessful!';
       }
     );
   }
