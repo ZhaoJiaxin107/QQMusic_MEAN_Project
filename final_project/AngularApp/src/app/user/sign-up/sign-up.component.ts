@@ -16,6 +16,7 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit(form:NgForm){
+    
     this.userService.postUser(form.value).subscribe(
       res=>{
         this.showSuccessMessage = true;

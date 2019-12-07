@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
+const randomstring = require('randomstring');
 var userSchema = new mongoose.Schema({
     method:{
         type:String,
@@ -19,7 +19,16 @@ var userSchema = new mongoose.Schema({
             type:String,
             minlength:[4,'Password must be at least 4 characters.']
         },
-        saltSecret:String
+        saltSecret:String,
+        active:{
+            type:Boolean,
+            required:true,
+            default:false
+        },
+        temporarytoken:{
+            type:String,
+            required:true
+        }
     },
     google:{
         id:{
