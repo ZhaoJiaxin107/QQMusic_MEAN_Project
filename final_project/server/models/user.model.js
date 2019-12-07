@@ -26,8 +26,7 @@ var userSchema = new mongoose.Schema({
             default:false
         },
         temporarytoken:{
-            type:String,
-            required:true
+            type:String
         }
     },
     google:{
