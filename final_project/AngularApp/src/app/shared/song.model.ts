@@ -1,6 +1,11 @@
 export class Song {
+    header:string;
     _id:string;
-    songname:string;
-    singer:string;
+    title:string;
+    album:string;
+    year:number;
+    comment:string;
+    reserve:string;
+    track:number;
     score:number;
 }

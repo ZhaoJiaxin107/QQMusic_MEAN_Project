@@ -30,18 +30,20 @@
 					<table>
 						<thead>
 							<tr class="table100-head">
-								<th class="column1">Song Name</th>
-								<th class="column2">Singer</th>
-								<th class="column3">Score</th>
-								<th class="column4">See more details</th>
+								<th class="column1">Title</th>
+								<th class="column2">Artist</th>
+								<th class="column3">Album</th>
+								<th class="column4">Score</th>
+								<th class="column5">See more details</th>
 							</tr>
 						</thead>
 						<tbody>
 								<tr *ngFor="let song of songService.songs">
-									<td class="column1">{{song.songname}}</td>
-									<td class="column2">{{song.singer}}</td>
-									<td class="column3">{{song.score}}</td>
-									<td class="column4"></td>
+									<td class="column1">{{song.title}}</td>
+									<td class="column2">{{song.artist}}</td>
+									<td class="column3">{{song.album}}</td>
+									<td class="column4">{{song.score}}</td>
+									<td class="column5"><button class="details">View More details</button></td>
 								</tr>
 						</tbody>
 					</table>

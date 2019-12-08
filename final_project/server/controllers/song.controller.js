@@ -4,8 +4,15 @@ const Song = mongoose.model('Song');
 
 module.exports.addsong = (req, res, next) => {
     var song = new Song();
-    song.songname = req.body.songname;
-    song.singer = req.body.singer;
+    song.header = req.body.header;
+    song.title = req.body.title;
+    song.artist = req.body.artist;
+    song.album = req.body.album;
+    song.year = req.body.year;
+    song.comment = req.body.comment;
+    song.reserve = req.body.reserve;
+    song.track = req.body.track;
+    song.genre = req.body.genre;
     song.score = req.body.score;
     song.save((err, doc) => {
         if (!err)

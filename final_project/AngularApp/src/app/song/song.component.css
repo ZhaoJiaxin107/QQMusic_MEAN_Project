@@ -230,13 +230,17 @@ tbody tr:hover {
   width: 170px;
   text-align: right;
 }
+.details{
+    background-color:lightslategrey; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 
-.column6 {
-  width: 222px;
-  text-align: right;
-  padding-right: 62px;
 }
-
 
 @media screen and (max-width: 992px) {
   table {
