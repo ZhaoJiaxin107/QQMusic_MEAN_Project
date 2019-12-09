@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SongService } from '../shared/song.service';
 import { Song } from '../shared/song.model';
 import { Observable } from 'rxjs';
@@ -15,17 +15,17 @@ export class SongComponent implements OnInit {
   
   listData:MatTableDataSource<any>;
   displayedColumns:string[]=['title','artist','album','score','option']
+
+  @ViewChild(MatSort,null) sort:MatSort;
+
   ngOnInit() {
     this.refreshSongList();
   }
 
   refreshSongList(){
-    /*var dummyData = [{title:"jump",artist:"jason",album:"route","score":7.5},
-    {title:"see you again",artist:"justin",album:"speed and passion","score":8.5},]
-
-    this.listData = new MatTableDataSource(dummyData);*/
     this.songService.getSongList().subscribe(data=>{
       this.listData = new MatTableDataSource(data);
+      this.listData.sort = this.sort;
     });
   }
 }
