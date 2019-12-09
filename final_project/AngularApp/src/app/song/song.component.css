@@ -228,7 +228,11 @@ tbody tr:hover {
     height:40px;
     border-radius: 4px;
 }
-
+.field{
+  width: 250px;
+  font-size: 25px;
+  font-weight: bold;
+}
 @media screen and (max-width: 992px) {
   table {
     display: block;

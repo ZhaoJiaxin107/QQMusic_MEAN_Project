@@ -27,6 +27,10 @@
 					</div>
 					<h3 class="hotsong">Hot Songs</h3>
 					<br>
+					<mat-form-field class="field">
+						<input matInput (keyup)="applyFilter($event.target.value)"
+						placeholder="Search">
+					</mat-form-field>
 					<div class="table"> 
 						<mat-table [dataSource] = "listData" matSort>
 							<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

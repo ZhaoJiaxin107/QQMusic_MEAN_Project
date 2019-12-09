@@ -3,6 +3,7 @@ import { SongService } from '../shared/song.service';
 import { Song } from '../shared/song.model';
 import { Observable } from 'rxjs';
 import { MatSort,MatSortable,MatTableDataSource} from '@angular/material';
+import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-song',
   templateUrl: './song.component.html',
@@ -27,5 +28,9 @@ export class SongComponent implements OnInit {
       this.listData = new MatTableDataSource(data);
       this.listData.sort = this.sort;
     });
+  }
+
+  applyFilter(filtervalue:string){
+    this.listData.filter = filtervalue.trim().toLocaleLowerCase();
   }
 }

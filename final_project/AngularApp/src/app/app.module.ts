@@ -7,6 +7,7 @@ import { HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule,MatSortModule } from '@angular/material';
 import { MatIconModule,MatButtonModule } from '@angular/material';
+import { MatFormFieldModule,MatInputModule } from '@angular/material';
 //components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -54,7 +55,9 @@ export function provideConfig(){
     MatTableModule,
     MatSortModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,
