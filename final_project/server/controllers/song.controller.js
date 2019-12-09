@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const Song = mongoose.model('Song');
-
+var ObjectId = require('mongoose').Types.ObjectId;
 module.exports.addsong = (req, res, next) => {
     var song = new Song();
     song.header = req.body.header;
@@ -27,4 +27,14 @@ module.exports.showsongs = (req,res,next) =>{
         if (!err) {res.send(docs); }
         else { console.log('Error in Retriving Songs :' + JSON.stringify(err, undefined, 2)); }
     });
+}
+
+module.exports.showOnesong = (req,res,next) =>{
+    if (!ObjectId.isValid(req.params.id))
+    return res.status(400).send(`No record with given id : ${req.params.id}`);
+
+    Song.findById(req.params.id, (err, doc) => {
+    if (!err) { res.send(doc); }
+    else { console.log('Error in Retriving Songs :' + JSON.stringify(err, undefined, 2)); }
+});
 }

@@ -27,26 +27,35 @@
 					</div>
 					<h3 class="hotsong">Hot Songs</h3>
 					<br>
-					<table>
-						<thead>
-							<tr class="table100-head">
-								<th class="column1">Title</th>
-								<th class="column2">Artist</th>
-								<th class="column3">Album</th>
-								<th class="column4">Score</th>
-								<th class="column5">See more details</th>
-							</tr>
-						</thead>
-						<tbody>
-								<tr *ngFor="let song of songService.songs">
-									<td class="column1">{{song.title}}</td>
-									<td class="column2">{{song.artist}}</td>
-									<td class="column3">{{song.album}}</td>
-									<td class="column4">{{song.score}}</td>
-									<td class="column5"><button class="details">View More details</button></td>
-								</tr>
-						</tbody>
-					</table>
+					<div class="table"> 
+						<mat-table [dataSource] = "listData">
+							<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+							<mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+							<ng-container matColumnDef="title">
+								<mat-header-cell *matHeaderCellDef class="thead column1">Title</mat-header-cell>
+								<mat-header-cell *matCellDef="let song" class="tbody column1">{{song.title}}</mat-header-cell>
+							</ng-container>
+							
+							<ng-container matColumnDef="artist">
+								<mat-header-cell *matHeaderCellDef class="thead">Artist</mat-header-cell>
+								<mat-header-cell *matCellDef="let song" class="tbody column2">{{song.artist}}</mat-header-cell>
+							</ng-container>
+							<ng-container matColumnDef="album">
+								<mat-header-cell *matHeaderCellDef class="thead">Album</mat-header-cell>
+								<mat-header-cell *matCellDef="let song" class="tbody column3">{{song.album}}</mat-header-cell>
+							</ng-container>
+							<ng-container matColumnDef="score">
+								<mat-header-cell *matHeaderCellDef class="thead">Score</mat-header-cell>
+								<mat-header-cell *matCellDef="let song" class="tbody column4">{{song.score}}</mat-header-cell>
+							</ng-container>
+							<ng-container matColumnDef="option">
+								<mat-header-cell *matHeaderCellDef class="thead">View more details</mat-header-cell>
+								<mat-cell *matCellDef="let row">
+									<button class="details">show</button>
+								</mat-cell>
+							</ng-container>
+						</mat-table>
+					</div>
 				</div>
 			</div>
 		</div>

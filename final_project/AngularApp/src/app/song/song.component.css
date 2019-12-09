@@ -155,32 +155,15 @@ table {
 table * {
   position: relative;
 }
-table td, table th {
-  padding-left: 8px;
-}
-table thead tr {
-  height: 60px;
-  background: #36304a;
-}
-table tbody tr {
-  height: 50px;
-}
-table tbody tr:last-child {
-  border: 0;
-}
-table td, table th {
-  text-align: left;
-}
-table td.l, table th.l {
-  text-align: right;
-}
-table td.c, table th.c {
+.thead{
   text-align: center;
+  font-size: 20px;
+  font-weight: bold;
 }
-table td.r, table th.r {
+.tbody{
   text-align: center;
+  font-size: 16px;
 }
-
 
 .table100-head th{
   font-family: OpenSans-Regular;
@@ -215,15 +198,18 @@ tbody tr:hover {
 
 .column2 {
   width: 160px;
+  padding-left: 30px;
 }
 
 .column3 {
   width: 245px;
+  padding-left: 20px;
 }
 
 .column4 {
   width: 110px;
   text-align: right;
+  padding-left: 60px;
 }
 
 .column5 {
@@ -231,15 +217,16 @@ tbody tr:hover {
   text-align: right;
 }
 .details{
-    background-color:lightslategrey; /* Green */
+    background-color:rebeccapurple;
     border: none;
     color: white;
-    padding: 15px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-
+    width:80px;
+    height:40px;
+    border-radius: 4px;
 }
 
 @media screen and (max-width: 992px) {
@@ -273,24 +260,6 @@ tbody tr:hover {
     width: 40%;
     left: 30px;
     top: 0;
-  }
-  table tbody tr td:nth-child(1):before {
-    content: "Date";
-  }
-  table tbody tr td:nth-child(2):before {
-    content: "Order ID";
-  }
-  table tbody tr td:nth-child(3):before {
-    content: "Name";
-  }
-  table tbody tr td:nth-child(4):before {
-    content: "Price";
-  }
-  table tbody tr td:nth-child(5):before {
-    content: "Quantity";
-  }
-  table tbody tr td:nth-child(6):before {
-    content: "Total";
   }
 
   .column4,

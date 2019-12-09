@@ -86,7 +86,7 @@ module.exports.register =async (req,res,next) =>{
         // Create e-mail object to send to user
           
 					var email = {
-						from: 'Localhost Staff, staff@localhost.com',
+						from: 'QQ Music@qq music.com',
 						to: user.local.email,
 						subject: 'Localhost Activation Link',
 						text: 'Hello '+ user.local.fullname,

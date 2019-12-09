@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule,MatSortModule } from '@angular/material';
+import { MatIconModule,MatButtonModule } from '@angular/material';
 //components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +18,7 @@ import { from } from 'rxjs';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserService } from './shared/user.service';
+import { SongService } from './shared/song.service';
 //other
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
@@ -45,7 +49,12 @@ export function provideConfig(){
     FormsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    SocialLoginModule
+    SocialLoginModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatSortModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,
@@ -53,7 +62,7 @@ export function provideConfig(){
     multi:true
   },{provide:AuthServiceConfig,
     useFactory:provideConfig
-  },AuthGuard,UserService],
+  },AuthGuard,UserService,SongService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

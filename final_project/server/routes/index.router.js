@@ -14,4 +14,5 @@ router.get('/activate/:token',ctrlUser.activateUser);
 router.route('/oauth/google').post(passportGoogle,ctrlUser.googleOAuth);
 router.post('/song',ctrlSong.addsong);
 router.get('/song',ctrlSong.showsongs);
+router.get('/song/:id',ctrlSong.showOnesong);
 module.exports = router;
