@@ -9,6 +9,8 @@ var songSchema = new mongoose.Schema({
     reserve:{ type:String },
     track:{ type:Number},
     genre:{ type:String },
+    review:{type:String},
+    num:{type:Number},
     score:{ type:Number,required:true}
 });
 

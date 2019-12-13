@@ -18,6 +18,8 @@ export class SongService {
     comment:"",
     reserve:"",
     track:0,
+    review:"",
+    num:0,
     score:0
   };
   songs:Song[];

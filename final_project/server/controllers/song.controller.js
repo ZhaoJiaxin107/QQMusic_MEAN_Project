@@ -13,6 +13,8 @@ module.exports.addsong = (req, res, next) => {
     song.reserve = req.body.reserve;
     song.track = req.body.track;
     song.genre = req.body.genre;
+    song.review = req.body.review;
+    song.num = req.body.num;
     song.score = req.body.score;
     song.save((err, doc) => {
         if (!err)
