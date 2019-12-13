@@ -1,0 +1,31 @@
+<div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+    <h1>Song Details</h1>
+    <br>
+    <table *ngIf="songDetails" border="1" class="detailtable"> 
+        <thead>
+            <tr>
+                <th width = "200px">header</th>
+                <th width = "200px">title</th>
+                <th width = "200px">artist</th>
+                <th width = "200px">album</th>
+                <th width = "200px">year</th>
+                <th width = "400px">comment</th>
+                <th width = "200px">track</th>
+                <th width = "200px">score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td width = "200px">{{songDetails.header}}</td>
+                <td width = "200px">{{songDetails.title}}</td>
+                <td width = "200px">{{songDetails.artist}}</td>
+                <td width = "200px">{{songDetails.album}}</td>
+                <td width = "200px">{{songDetails.year}}</td>
+                <td width = "400px">{{songDetails.comment}}</td>
+                <td width = "200px">{{songDetails.track}}</td>
+                <td width = "200px">{{songDetails.score}}</td>
+            </tr>
+            
+    </table>
+</div>
+

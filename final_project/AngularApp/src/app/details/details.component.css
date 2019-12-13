@@ -1,0 +1,30 @@
+.detailtable{
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+    font-family: verdana,arial,sans-serif;
+    color:#333333;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+  }
+  .detailtable th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #dedede;
+}
+.detailtable td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #ffffff;
+}
+
+h1{
+    text-align: center;
+    color: aquamarine;
+    margin-top: -100px;
+}

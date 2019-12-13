@@ -25,6 +25,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { SocialLoginModule,AuthServiceConfig,GoogleLoginProvider} from 'ng4-social-login';
 import { SongComponent } from './song/song.component';
+import { DetailsComponent } from './details/details.component';
 const config = new AuthServiceConfig([
 {
   id:GoogleLoginProvider.PROVIDER_ID,
@@ -42,7 +43,8 @@ export function provideConfig(){
     SignUpComponent,
     UserProfileComponent,
     SignInComponent,
-    SongComponent
+    SongComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

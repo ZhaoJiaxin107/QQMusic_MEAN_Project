@@ -54,8 +54,8 @@
 							</ng-container>
 							<ng-container matColumnDef="option">
 								<mat-header-cell *matHeaderCellDef class="thead">View more details</mat-header-cell>
-								<mat-cell *matCellDef="let row">
-									<button class="details">show</button>
+								<mat-cell *matCellDef="let song">
+									<button class="details" (click)="onSearch(song)">show</button>
 								</mat-cell>
 							</ng-container>
 						</mat-table>

@@ -5,6 +5,7 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from './auth/auth.guard';
 import { SongComponent } from './song/song.component';
+import { DetailsComponent } from './details/details.component';
 export const appRoutes:Routes = [
     {
         path:'signup',component:UserComponent,
@@ -19,6 +20,9 @@ export const appRoutes:Routes = [
     },
     {
         path:'home',component:SongComponent
+    },
+    {
+        path:'details/:id',component:DetailsComponent
     },
     {
         path:'',redirectTo:'/home',pathMatch:'full'

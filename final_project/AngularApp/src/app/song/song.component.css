@@ -230,8 +230,7 @@ tbody tr:hover {
 }
 .field{
   width: 250px;
-  font-size: 25px;
-  font-weight: bold;
+  font-size: 20px;
 }
 @media screen and (max-width: 992px) {
   table {
