@@ -4,6 +4,7 @@ import { Review } from '../shared/review.model';
 import { Observable } from 'rxjs';
 import { MatSort,MatSortable,MatTableDataSource} from '@angular/material';
 import { Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-reviewdetails',
   templateUrl: './reviewdetails.component.html',
@@ -28,5 +29,7 @@ export class ReviewdetailsComponent implements OnInit {
       this.listData.sort = this.sort;
     });
   }
-
+  applyFilter(filtervalue:string){
+    this.listData.filter = filtervalue.trim().toLocaleLowerCase();
+  }
 }

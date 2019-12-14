@@ -3,6 +3,10 @@
         <div class="wrap-table100">
             <div class="table100">
                 <h1>QQ Music for Reviews</h1>
+                <mat-form-field class="field">
+                    <input matInput (keyup)="applyFilter($event.target.value)"
+                    placeholder="Search">
+                </mat-form-field>
                 <div class="table">
                     <mat-table [dataSource] = "listData" matSort>
                         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
