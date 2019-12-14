@@ -4,7 +4,7 @@ import { Review } from '../shared/review.model';
 import { Observable } from 'rxjs';
 import { MatSort,MatSortable,MatTableDataSource} from '@angular/material';
 import { Router } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 @Component({
   selector: 'app-reviewdetails',
   templateUrl: './reviewdetails.component.html',
@@ -14,8 +14,7 @@ import { filter } from 'rxjs/operators';
 export class ReviewdetailsComponent implements OnInit {
 
   constructor(private reviewService:ReviewService,private router:Router) { }
-  listData:MatTableDataSource<any>;
-  displayedColumns:string[]=['title','fullname','text','rating','time']
+  
 
   @ViewChild(MatSort,null) sort:MatSort;
   ngOnInit() {  
@@ -23,13 +22,10 @@ export class ReviewdetailsComponent implements OnInit {
   }
 
   refreshReviewList(){
-    this.reviewService.getReviewList().subscribe(data=>{
-      this.listData = new MatTableDataSource(data);
-      console.log(this.listData);
-      this.listData.sort = this.sort;
+    this.reviewService.getReviewList().subscribe((res) =>{
+      this.reviewService.reviews = res as Review[];
+      console.log(this.reviewService.reviews);
     });
   }
-  applyFilter(filtervalue:string){
-    this.listData.filter = filtervalue.trim().toLocaleLowerCase();
-  }
+  
 }

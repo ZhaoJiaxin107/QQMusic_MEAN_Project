@@ -3,45 +3,36 @@
         <div class="wrap-table100">
             <div class="table100">
                 <h1>QQ Music for Reviews</h1>
-                <mat-form-field class="field">
-                    <input matInput (keyup)="applyFilter($event.target.value)"
-                    placeholder="Search">
-                </mat-form-field>
-                <div class="table">
-                    <mat-table [dataSource] = "listData" matSort>
-                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                        <mat-row *matRowDef="let row;columns:displayedColumns"></mat-row>
-                        
-                        <ng-container matColumnDef="title">
-                            <mat-header-cell *matHeaderCellDef class="thead" mat-sort-header>Title</mat-header-cell>
-                            <mat-header-cell *matCellDef="let review" class="tbody column1">{{review.title}}</mat-header-cell>
-                        </ng-container>
-
-                        <ng-container matColumnDef="fullname">
-                            <mat-header-cell *matHeaderCellDef class="thead" mat-sort-header>Fullname</mat-header-cell>
-                            <mat-header-cell *matCellDef="let review" class="tbody column2">{{review.fullname}}</mat-header-cell>
-                        </ng-container>
-
-                        <ng-container matColumnDef="text">
-                            <mat-header-cell *matHeaderCellDef class="thead">Content</mat-header-cell>
-                            <mat-header-cell *matCellDef="let review" class="tbody column3">{{review.text}}</mat-header-cell>
-                        </ng-container>
-
-                        <ng-container matColumnDef="rating">
-                            <mat-header-cell *matHeaderCellDef class="thead" mat-sort-header>Rating</mat-header-cell>
-                            <mat-header-cell *matCellDef="let review" class="tbody column4">{{review.rating}}</mat-header-cell>
-                        </ng-container>
-
-                        <ng-container matColumnDef="time">
-                            <mat-header-cell *matHeaderCellDef class="thead" mat-sort-header>Time</mat-header-cell>
-                            <mat-header-cell *matCellDef="let review" class="tbody column5">{{review.time}}</mat-header-cell>
-                        </ng-container>
-                    </mat-table>
+                    <br><br>
+                    
+                    <table>
+                        <cdk-virtual-scroll-viewport itemSize="20" style="height:300px;width:100%;">
+                        <thead>
+                            <tr style="width:100%">
+                                <th class="column1">title</th>
+                                <th class="column2">fullname</th>
+                                <th class="column3">text</th>
+                                <th class="column4">rating</th>
+                                <th class="column5">time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr *cdkVirtualFor = "let review of reviewService.reviews">
+                                <td class="tbody column1">{{review.title}}</td>
+                                <td class="tbody column2">{{review.fullname}}</td>
+                                <td class="tbody column3">{{review.text}}</td>
+                                <td class="tbody column4">{{review.rating}}</td>
+                                <td class="tbody column5">{{review.time}}</td>
+                            </tr>
+                       
+                        </tbody>
+                    </cdk-virtual-scroll-viewport>
+                    </table>
+                    
                     <div class="returndetail" routerLink="/home" routerLinkActive="active">
 						<button>Return</button>
 					</div>
-                </div>
             </div>
         </div>
     </div>
-</div>

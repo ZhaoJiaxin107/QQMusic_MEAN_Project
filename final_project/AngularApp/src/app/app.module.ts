@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule,MatSortModule } from '@angular/material';
 import { MatIconModule,MatButtonModule } from '@angular/material';
 import { MatFormFieldModule,MatInputModule } from '@angular/material';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 //components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -61,7 +62,8 @@ export function provideConfig(){
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    ScrollingModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,
