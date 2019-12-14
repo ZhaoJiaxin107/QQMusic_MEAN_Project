@@ -21,7 +21,7 @@ export class DetailsComponent implements OnInit {
       res=>{
         this.songService.selectedSong = res as Song;
         this.songDetails = this.songService.selectedSong;
-        console.log(this.songDetails);
+        console.log(res);
       },
       err=>{}
     );

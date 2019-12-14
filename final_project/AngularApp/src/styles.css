@@ -320,7 +320,8 @@
   .usertable{
     font-size: 20px;
     text-align: center;
-    margin: 0 auto;
+    margin-top:-150px;
+    margin-left: 10px;
     font-family: verdana,arial,sans-serif;
     color:#333333;
     border-width: 1px;
