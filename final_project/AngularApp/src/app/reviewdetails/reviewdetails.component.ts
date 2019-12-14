@@ -14,10 +14,19 @@ export class ReviewdetailsComponent implements OnInit {
 
   constructor(private reviewService:ReviewService,private router:Router) { }
   listData:MatTableDataSource<any>;
-  displayedColumns:string[]=['title','fullname','text','rating']
+  displayedColumns:string[]=['title','fullname','text','rating','time']
 
   @ViewChild(MatSort,null) sort:MatSort;
-  ngOnInit() {
+  ngOnInit() {  
+    this.refreshReviewList();
+  }
+
+  refreshReviewList(){
+    this.reviewService.getReviewList().subscribe(data=>{
+      this.listData = new MatTableDataSource(data);
+      console.log(this.listData);
+      this.listData.sort = this.sort;
+    });
   }
 
 }

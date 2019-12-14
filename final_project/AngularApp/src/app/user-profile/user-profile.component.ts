@@ -42,7 +42,8 @@ export class UserProfileComponent implements OnInit {
       title:"",
       fullname:"",
       text:"",
-      rating:null
+      rating:null,
+      time:null
     }  
   }
 

@@ -17,7 +17,7 @@ export class ReviewService {
     return this.http.post(this.baseURL+'/review', rev);
   }
 
-  getReviewList() {
-    return this.http.get(this.baseURL+'/review');
+  getReviewList():Observable<Review[]> {
+    return this.http.get<Review[]>(this.baseURL+'/review');
   }
 }
