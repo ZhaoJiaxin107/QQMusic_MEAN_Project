@@ -6,6 +6,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from './auth/auth.guard';
 import { SongComponent } from './song/song.component';
 import { DetailsComponent } from './details/details.component';
+import { ReviewdetailsComponent } from './reviewdetails/reviewdetails.component';
 export const appRoutes:Routes = [
     {
         path:'signup',component:UserComponent,
@@ -23,6 +24,9 @@ export const appRoutes:Routes = [
     },
     {
         path:'details/:id',component:DetailsComponent
+    },
+    {
+        path:'moredetails',component:ReviewdetailsComponent
     },
     {
         path:'',redirectTo:'/home',pathMatch:'full'

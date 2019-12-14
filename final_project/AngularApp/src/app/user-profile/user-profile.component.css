@@ -61,3 +61,8 @@ a.action-btn:hover{
     top:4%;
   }
   
+  .validation-message1{
+      color: bisque;
+      font-size: 15px;
+  }
+  

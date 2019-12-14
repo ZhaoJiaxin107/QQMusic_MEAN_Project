@@ -4,7 +4,7 @@
     <table *ngIf="songDetails" border="1" class="detailtable"> 
         <thead>
             <tr>
-                <th width = "200px">header</th>
+                <th width = "100px">header</th>
                 <th width = "200px">title</th>
                 <th width = "200px">artist</th>
                 <th width = "200px">album</th>
@@ -19,7 +19,7 @@
         </thead>
         <tbody>
             <tr>
-                <td width = "200px">{{songDetails.header}}</td>
+                <td width = "100px">{{songDetails.header}}</td>
                 <td width = "200px">{{songDetails.title}}</td>
                 <td width = "200px">{{songDetails.artist}}</td>
                 <td width = "200px">{{songDetails.album}}</td>
@@ -32,6 +32,9 @@
                 <td width = "100px">{{songDetails.score}}</td>
             </tr>
     </table>
+    <div routerLink="/moredetails" routerLinkActive="active">
+        <button class="show">Show more reviews</button>
+    </div>
     <div routerLink="/home" routerLinkActive="active">
         <button class="return">Return</button>
     </div>

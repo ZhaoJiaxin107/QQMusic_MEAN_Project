@@ -71,13 +71,13 @@
                         <div class="col s7">
                             <h5>You can add songs</h5>
                             <form #songForm="ngForm" (ngSubmit)="songForm.valid && onSubmit1(songForm)" autocomplete="off">
-                                
+                                <input type="hidden" name="header" #header="ngModel" [(ngModel)] = "songService.selectedSong.header">
                                 <div class="row" width="50px" height ="30px">
                                     <div class="input-field col">
                                         <label>title*:</label><br>
                                         <input type="text" #title="ngModel" [(ngModel)] = "songService.selectedSong.title" name="title" placeholder="Input song name" required>
                                         <div *ngIf = "songForm.submitted && !title.valid">
-                                            <label class="validation-message">Title is required.</label>
+                                            <label class="validation-message1">Title is required.</label>
                                         </div> 
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@
                                         <label>artist*:</label><br>
                                         <input type="text" #artist="ngModel" [(ngModel)] = "songService.selectedSong.artist" name="artist" placeholder="Input singer" required>
                                         <div *ngIf = "songForm.submitted && !artist.valid">
-                                            <label class="validation-message">Artist is required.</label>
+                                            <label class="validation-message1">Artist is required.</label>
                                         </div> 
                                     </div>
                                 </div>
@@ -142,6 +142,8 @@
                                     
                                             <button class="btn btn-custom right" type="submit">Submit</button>
                                             <button class="btn btn-custom right" type="button" (click)="onLogout()">LogOut</button>
+                                            <button class="btn btn-custom" type="button" routerLink="/home" routerLinkActive="active">Enter Home</button>
+
                                         </div>
                                     </div>
                                 </div>
