@@ -2,15 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../shared/user.service';
 import { ReviewService } from '../shared/review.service';
+import { SongService } from '../shared/song.service';
 import { Router } from '@angular/router';
 import { Review } from '../shared/review.model';
+import { Song } from '../shared/song.model';
 declare var M:any;
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.css'],
-  providers:[UserService,ReviewService]
+  providers:[UserService,ReviewService,SongService]
 })
 export class UserProfileComponent implements OnInit {
   userDetails;
@@ -18,6 +20,7 @@ export class UserProfileComponent implements OnInit {
   serverErrorMessage:string;
   constructor(private userService:UserService,
     private reviewService:ReviewService,
+    private songService:SongService,
     private router:Router) { }
 
   ngOnInit() {
@@ -28,6 +31,7 @@ export class UserProfileComponent implements OnInit {
       
       err=>{}
     );
+    this.resetForm();
   }
 
   resetForm(form?:NgForm){
@@ -42,6 +46,25 @@ export class UserProfileComponent implements OnInit {
     }  
   }
 
+  resetSongForm(form?:NgForm){
+    if(form)
+      form.reset();
+    /*this.songService.selectedSong={
+      header:"",
+      _id:"",
+      title:"",
+      artist:"",
+      album:"",
+      year:null,
+      comment:"",
+      reserve:"",
+      track:null,
+      genre:"",
+      review:"",
+      num:null,
+      score:null
+    }*/  
+  }
   
   onSubmit(form: NgForm) {
       this.reviewService.postReview(form.value).subscribe(
@@ -55,6 +78,18 @@ export class UserProfileComponent implements OnInit {
       );
   }
 
+  onSubmit1(form: NgForm) {
+    this.songService.postSong(form.value).subscribe(
+      res=>{
+        this.showSuccessMessage = true;
+        setTimeout(() => this.showSuccessMessage=false,4000);
+        this.resetForm(form);
+        console.log('Saved Successfully!');
+        //M.toast({html:'Saved successfully',classes:'rounded'});
+      }
+      
+    );
+}
   onLogout(){
     this.userService.deleteToken();
     this.router.navigate(['/login']);

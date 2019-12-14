@@ -11,6 +11,7 @@
                 <th width = "100px">year</th>
                 <th width = "400px">comment</th>
                 <th width = "100px">track</th>
+                <th width = "100px">genre</th>
                 <th width = "400px">review</th>
                 <th width = "100px">num</th>
                 <th width = "100px">score</th>
@@ -25,11 +26,14 @@
                 <td width = "100px">{{songDetails.year}}</td>
                 <td width = "400px">{{songDetails.comment}}</td>
                 <td width = "100px">{{songDetails.track}}</td>
+                <td width = "100px">{{songDetails.genre}}</td>
                 <td width = "200px">{{songDetails.review}}</td>
                 <td width = "100px">{{songDetails.num}}</td>
                 <td width = "100px">{{songDetails.score}}</td>
             </tr>
-            
     </table>
+    <div routerLink="/home" routerLinkActive="active">
+        <button class="return">Return</button>
+    </div>
 </div>
 

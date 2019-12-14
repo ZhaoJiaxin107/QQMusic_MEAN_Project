@@ -8,6 +8,7 @@ export interface Song {
     comment:string;
     reserve:string;
     track:number;
+    genre:string;
     review:string;
     num:number;
     score:number;

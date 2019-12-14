@@ -51,5 +51,13 @@ a.action-btn:hover{
     right: auto !important;
     bottom: 30%;
     left:7%;
+    color: antiquewhite;
+    font-size: 14px;
+  }
+
+  .other{
+    position:absolute;
+    left:70%;
+    top:4%;
   }
   

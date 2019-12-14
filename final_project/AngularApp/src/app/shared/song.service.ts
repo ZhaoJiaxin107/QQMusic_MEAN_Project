@@ -14,13 +14,14 @@ export class SongService {
     title:"",
     artist:"",
     album:"",
-    year:0,
+    year:null,
     comment:"",
     reserve:"",
-    track:0,
+    track:null,
+    genre:"",
     review:"",
-    num:0,
-    score:0
+    num:null,
+    score:null
   };
   songs:Song[];
 
@@ -33,6 +34,10 @@ export class SongService {
 
   getOneSong(_id){
     return this.http.get(this.APIUrl + '/song'+`/${_id}`);
+  }
+
+  postSong(s: Song) {
+    return this.http.post(this.APIUrl+'/song', s);
   }
 }
 
