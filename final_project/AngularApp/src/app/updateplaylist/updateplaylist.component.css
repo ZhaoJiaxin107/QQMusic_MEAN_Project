@@ -1,0 +1,23 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.save {
+    top: auto !important;
+    right: auto !important;
+    bottom: 30%;
+    left:10%;
+    color:brown;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .login-button-box button{
+    background-color: #ff7d0a;
+    color: #ffffff;
+    font-size: 16px;
+    width: 100px;
+    height: 40px;
+    margin-left: 18px;
+    border: 1px solid #ff7d0a;
+    border-radius: 4px;
+    position:absolute;
+    left:80%;
+    top:5%;
+  }

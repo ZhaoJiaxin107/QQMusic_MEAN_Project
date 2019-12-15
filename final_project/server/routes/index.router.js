@@ -23,4 +23,5 @@ router.post('/playlist',ctrlPlaylist.addPlaylist);
 router.get('/playlist',ctrlPlaylist.showPlaylists);
 router.put('/playlist/:id',ctrlPlaylist.updatePlaylist);
 router.delete('/playlist/:id',ctrlPlaylist.deletePlaylist);
+router.get('/playlist/:id',ctrlPlaylist.showOneplaylist);
 module.exports = router;

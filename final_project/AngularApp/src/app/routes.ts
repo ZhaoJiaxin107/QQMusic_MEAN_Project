@@ -8,7 +8,8 @@ import { SongComponent } from './song/song.component';
 import { DetailsComponent } from './details/details.component';
 import { ReviewdetailsComponent } from './reviewdetails/reviewdetails.component';
 import { PlaylistComponent } from './playlist/playlist.component';
-import { PlaylistdetailComponent } from './playlistdetail/playlistdetail.component'
+import { PlaylistdetailComponent } from './playlistdetail/playlistdetail.component';
+import { UpdateplaylistComponent } from './updateplaylist/updateplaylist.component';
 export const appRoutes:Routes = [
     {
         path:'signup',component:UserComponent,
@@ -35,6 +36,9 @@ export const appRoutes:Routes = [
     },
     {
         path:'playlistdetail',component:PlaylistdetailComponent
+    },
+    {
+        path:'updateplaylist/:id',component:UpdateplaylistComponent
     },
     {
         path:'',redirectTo:'/home',pathMatch:'full'

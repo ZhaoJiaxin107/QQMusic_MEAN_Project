@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<div class="d-flex justify-content-between m-3">
+    <h4>Update playlist</h4>
+</div>
+<div class="login-button-box" routerLink="/playlistdetail" routerLinkActive="active">
+    <button>Return</button>
+</div>
+    <div style="overflow: auto; height: 450px;">
+      <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+        <div class="m-3 input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Status</span>
+            </div>
+            <input readonly="readonly" type="text"
+            class="form-control"
+            name="status"
+            #status="ngModel"
+            [(ngModel)]="playlistService.selectedPlaylist.status">
+          </div>
+
+          <div class="m-3 input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Playlist ID</span>
+              </div>
+              <input readonly="readonly" type="text"
+              class="form-control"
+              name="_id"
+              #_id="ngModel"
+              [(ngModel)]="playlistService.selectedPlaylist._id">
+            </div>
+
+
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Playlist Title</span>
+                </div>
+                <input required type="text"
+                class="form-control"
+                name="playlisttitle"
+                #playlisttitle="ngModel"
+                [(ngModel)]="playlistService.selectedPlaylist.playlisttitle">
+            </div>
+
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Description</span>
+                </div>
+                <input required type="text"
+                class="form-control"
+                name="description"
+                #description="ngModel"
+                [(ngModel)]="playlistService.selectedPlaylist.description">
+            </div>
+
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Fullname</span>
+                </div>
+                <input readonly="readonly" type="text"
+                class="form-control"
+                name="fullname"
+                #fullname="ngModel"
+                [(ngModel)]="playlistService.selectedPlaylist.fullname">
+            </div>
+
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Title</span>
+                </div>
+                <input readonly="readonly" type="text"
+                class="form-control"
+                name="title"
+                #title="ngModel"
+                [(ngModel)]="playlistService.selectedPlaylist.title">
+            </div>
+            
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Artist</span>
+                </div>
+                <input readonly="readonly" type="text"
+                class="form-control"
+                name="artist"
+                #artist="ngModel"
+                [(ngModel)]="playlistService.selectedPlaylist.artist">
+            </div>
+
+          
+            <button class="m-3" mat-raised-button
+            color="primary" type="submit"
+            [disabled]="form.invalid">Update Playlist</button>
+
+      </form>
+      <!-- Success Message -->
+      <div class="save" *ngIf="showSuccessMessage">
+        Updated Successfully!
+        </div>
+</div>

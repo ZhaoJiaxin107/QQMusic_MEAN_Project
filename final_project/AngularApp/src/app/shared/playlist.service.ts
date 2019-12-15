@@ -27,7 +27,12 @@ export class PlaylistService {
     return this.http.get(this.baseURL + '/playlist');
   }
 
-  putPlaylist(play: Playlist) {
+  getOnePlaylist(_id){
+    return this.http.get(this.baseURL + '/playlist'+`/${_id}`);
+  }
+
+
+  updatePlaylist(play: Playlist) {
     return this.http.put(this.baseURL + '/playlist'+ `/${play._id}`, play);
   }
 

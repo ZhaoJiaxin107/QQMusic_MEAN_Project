@@ -27,7 +27,7 @@
                                 <td class="tbody column5">{{playlist.artist}}</td>
                                 <td class="tbody column6">
                                     <a class="action-btn">
-                                        <i class="material-icons">edit</i>
+                                        <i class="material-icons" (click)="onEdit(playlist)">edit</i>
                                       </a>
                                       <a class="action-btn">
                                         <i class="material-icons" (click)="onDelete(playlist._id)">delete</i>

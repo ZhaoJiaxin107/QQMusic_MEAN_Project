@@ -9,6 +9,8 @@ import { MatTableModule,MatSortModule } from '@angular/material';
 import { MatIconModule,MatButtonModule } from '@angular/material';
 import { MatFormFieldModule,MatInputModule } from '@angular/material';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatDialogModule } from '@angular/material';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 //components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +32,7 @@ import { DetailsComponent } from './details/details.component';
 import { ReviewdetailsComponent } from './reviewdetails/reviewdetails.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { PlaylistdetailComponent } from './playlistdetail/playlistdetail.component';
+import { UpdateplaylistComponent } from './updateplaylist/updateplaylist.component';
 const config = new AuthServiceConfig([
 {
   id:GoogleLoginProvider.PROVIDER_ID,
@@ -51,7 +54,8 @@ export function provideConfig(){
     DetailsComponent,
     ReviewdetailsComponent,
     PlaylistComponent,
-    PlaylistdetailComponent
+    PlaylistdetailComponent,
+    UpdateplaylistComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +71,9 @@ export function provideConfig(){
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    ScrollingModule
+    ScrollingModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,

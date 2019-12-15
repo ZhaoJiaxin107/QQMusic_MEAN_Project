@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { PlaylistService } from '../shared/playlist.service';
 import { Playlist } from '../shared/playlist.model';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { UpdateplaylistComponent} from '../updateplaylist/updateplaylist.component';
 
+import {MatSnackBar} from '@angular/material';
 @Component({
   selector: 'app-playlistdetail',
   templateUrl: './playlistdetail.component.html',
@@ -10,8 +13,12 @@ import { Router } from '@angular/router';
   providers:[PlaylistService]
 })
 export class PlaylistdetailComponent implements OnInit {
-
-  constructor(private playlistService:PlaylistService,private router:Router) { }
+  playlistid;
+  title;
+  artist;
+  constructor(private playlistService:PlaylistService,private router:Router,
+    private dialog:MatDialog,
+    private snackBar:MatSnackBar) { }
 
   ngOnInit() {
     this.refreshPlaylist();
@@ -31,6 +38,11 @@ export class PlaylistdetailComponent implements OnInit {
         console.log("Deleted Successfully!");
       });
     }
+  }
+
+  onEdit(play:Playlist){
+    this.playlistService.selectedPlaylist = play;
+    this.router.navigate(['/updateplaylist',play._id]);
   }
 
 }
