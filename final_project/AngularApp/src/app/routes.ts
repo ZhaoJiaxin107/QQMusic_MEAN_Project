@@ -7,6 +7,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { SongComponent } from './song/song.component';
 import { DetailsComponent } from './details/details.component';
 import { ReviewdetailsComponent } from './reviewdetails/reviewdetails.component';
+import { PlaylistComponent } from './playlist/playlist.component';
 export const appRoutes:Routes = [
     {
         path:'signup',component:UserComponent,
@@ -27,6 +28,9 @@ export const appRoutes:Routes = [
     },
     {
         path:'moredetails',component:ReviewdetailsComponent
+    },
+    {
+        path:'playlist',component:PlaylistComponent
     },
     {
         path:'',redirectTo:'/home',pathMatch:'full'

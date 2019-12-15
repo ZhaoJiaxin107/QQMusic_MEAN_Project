@@ -23,7 +23,7 @@
 					</div>
 					<br>
 					<div class="login-button-box" routerLink="/login" routerLinkActive="active">
-						<button>Login</button>
+						<button>Logout</button>
 					</div>
 					<h3 class="hotsong">Hot Songs</h3>
 					<br>
@@ -52,15 +52,26 @@
 								<mat-header-cell *matHeaderCellDef class="thead" mat-sort-header>Score</mat-header-cell>
 								<mat-header-cell *matCellDef="let song" class="tbody column4">{{song.score}}</mat-header-cell>
 							</ng-container>
-							<ng-container matColumnDef="option">
-								<mat-header-cell *matHeaderCellDef class="thead">View more details</mat-header-cell>
+                            <ng-container matColumnDef="option">
+								<mat-header-cell *matHeaderCellDef class="thead">Add to playlist</mat-header-cell>
 								<mat-cell *matCellDef="let song">
-									<button class="details" (click)="onSearch(song)">show</button>
+									<button class="details" (click)="onAdd(song)">Add</button>
 								</mat-cell>
 							</ng-container>
-			
 						</mat-table>
-					</div>
+                    </div>
+                    <div>
+  
+                        <form #playlist="ngForm" (ngSubmit)="playlist.valid &&onSubmit(playlist)" autocomplete="off">
+                            <input type="hidden" #status="ngModel" [(ngModel)]="playlistService.selectedPlaylist.status" name="status">
+							<input type="hidden" #playlisttitle="ngModel" [(ngModel)]="playlistService.selectedPlaylist.playlisttitle" name="playlisttitle">
+							<input type="hidden" #description="ngModel" [(ngModel)]="playlistService.selectedPlaylist.description" name="description">
+							<input type="hidden" #fullname="ngModel" [(ngModel)]="playlistService.selectedPlaylist.fullname" name="fullname">
+							<input type="hidden" #title="ngModel" [(ngModel)]="songTitle" name="title">
+							<input type="hidden" #artist="ngModel" [(ngModel)]="songArtist" name="artist">
+							<button class="details1" type="submit">Confirm</button>
+                        </form>
+                    </div>
 				</div>
 			</div>
 		</div>
