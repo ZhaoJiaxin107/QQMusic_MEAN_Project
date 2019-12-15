@@ -9,3 +9,4 @@ mongoose.connect(process.env.MONGODB_URI,{ useUnifiedTopology: true,useNewUrlPar
 require('./user.model');
 require('./song.model');
 require('./review.model');
+require('./playlist.model');

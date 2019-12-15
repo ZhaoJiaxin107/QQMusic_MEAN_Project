@@ -4,6 +4,7 @@ const passport = require('passport');
 const ctrlUser = require('../controllers/user.controller');
 const ctrlSong = require('../controllers/song.controller');
 const ctrlReview = require('../controllers/review.controller');
+const ctrlPlaylist = require('../controllers/playlist.controller');
 const jwtHelper = require('../config/jwtHelper');
 const passportGoogle = passport.authenticate('googleToken',{session:false})
 
@@ -18,4 +19,8 @@ router.get('/song',ctrlSong.showsongs);
 router.get('/song/:id',ctrlSong.showOnesong);
 router.post('/review',ctrlReview.addReview);
 router.get('/review',ctrlReview.showreviews);
+router.post('/playlist',ctrlPlaylist.addPlaylist);
+router.get('/playlist',ctrlPlaylist.showPlaylists);
+router.put('/playlist/:id',ctrlPlaylist.updatePlaylist);
+router.delete('/playlist/:id',ctrlPlaylist.deletePlaylist);
 module.exports = router;
