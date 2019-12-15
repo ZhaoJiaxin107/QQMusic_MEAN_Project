@@ -29,6 +29,7 @@ import { SongComponent } from './song/song.component';
 import { DetailsComponent } from './details/details.component';
 import { ReviewdetailsComponent } from './reviewdetails/reviewdetails.component';
 import { PlaylistComponent } from './playlist/playlist.component';
+import { PlaylistdetailComponent } from './playlistdetail/playlistdetail.component';
 const config = new AuthServiceConfig([
 {
   id:GoogleLoginProvider.PROVIDER_ID,
@@ -49,7 +50,8 @@ export function provideConfig(){
     SongComponent,
     DetailsComponent,
     ReviewdetailsComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    PlaylistdetailComponent
   ],
   imports: [
     BrowserModule,

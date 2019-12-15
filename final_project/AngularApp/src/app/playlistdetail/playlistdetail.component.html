@@ -1,0 +1,47 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="limiter">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100">
+                <h1>QQ Music for Playlist</h1>
+                    <br><br>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="column1">playlisttitle</th>
+                                <th class="column2">description</th>
+                                <th class="column3">fullname</th>
+                                <th class="column4">title</th>
+                                <th class="column5">artist</th>
+                                <th class="column6">operation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr *ngFor = "let playlist of playlistService.playlists">
+                                <td class="tbody column1">{{playlist.playlisttitle}}</td>
+                                <td class="tbody column2">{{playlist.description}}</td>
+                                <td class="tbody column3">{{playlist.fullname}}</td>
+                                <td class="tbody column4">{{playlist.title}}</td>
+                                <td class="tbody column5">{{playlist.artist}}</td>
+                                <td class="tbody column6">
+                                    <a class="action-btn">
+                                        <i class="material-icons">edit</i>
+                                      </a>
+                                      <a class="action-btn">
+                                        <i class="material-icons">delete</i>
+                                      </a>
+
+                                </td>
+                            </tr>
+                       
+                        </tbody>
+                    </table>
+                    
+                    <div class="returndetail" routerLink="/playlist" routerLinkActive="active">
+						<button>Return</button>
+					</div>
+            </div>
+        </div>
+    </div>

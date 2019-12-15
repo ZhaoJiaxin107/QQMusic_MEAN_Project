@@ -8,6 +8,7 @@ import { SongComponent } from './song/song.component';
 import { DetailsComponent } from './details/details.component';
 import { ReviewdetailsComponent } from './reviewdetails/reviewdetails.component';
 import { PlaylistComponent } from './playlist/playlist.component';
+import { PlaylistdetailComponent } from './playlistdetail/playlistdetail.component'
 export const appRoutes:Routes = [
     {
         path:'signup',component:UserComponent,
@@ -31,6 +32,9 @@ export const appRoutes:Routes = [
     },
     {
         path:'playlist',component:PlaylistComponent
+    },
+    {
+        path:'playlistdetail',component:PlaylistdetailComponent
     },
     {
         path:'',redirectTo:'/home',pathMatch:'full'
