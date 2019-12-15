@@ -5,7 +5,7 @@
             <div class="table100">
                 <h1>QQ Music for Playlist</h1>
                     <br><br>
-                    
+                   
                     <table>
                         <thead>
                             <tr>
@@ -20,12 +20,12 @@
                         <tbody>
                           
                             <tr *ngFor = "let playlist of playlistService.playlists">
-                                <td class="tbody column1">{{playlist.playlisttitle}}</td>
-                                <td class="tbody column2">{{playlist.description}}</td>
-                                <td class="tbody column3">{{playlist.fullname}}</td>
-                                <td class="tbody column4">{{playlist.title}}</td>
-                                <td class="tbody column5">{{playlist.artist}}</td>
-                                <td class="tbody column6">
+                                <td class="tbody column1" *ngIf="playlist.status">{{playlist.playlisttitle}}</td>
+                                <td class="tbody column2" *ngIf="playlist.status">{{playlist.description}}</td>
+                                <td class="tbody column3" *ngIf="playlist.status">{{playlist.fullname}}</td>
+                                <td class="tbody column4" *ngIf="playlist.status">{{playlist.title}}</td>
+                                <td class="tbody column5" *ngIf="playlist.status">{{playlist.artist}}</td>
+                                <td class="tbody column6" >
                                     <a class="action-btn">
                                         <i class="material-icons" (click)="onEdit(playlist)">edit</i>
                                       </a>

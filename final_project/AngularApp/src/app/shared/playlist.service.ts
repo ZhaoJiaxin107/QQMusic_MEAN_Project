@@ -27,7 +27,7 @@ export class PlaylistService {
     return this.http.get(this.baseURL + '/playlist');
   }
 
-  getOnePlaylist(_id){
+  getOnePlaylist(_id:string){
     return this.http.get(this.baseURL + '/playlist'+`/${_id}`);
   }
 

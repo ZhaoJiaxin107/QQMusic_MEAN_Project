@@ -16,6 +16,8 @@ export class PlaylistdetailComponent implements OnInit {
   playlistid;
   title;
   artist;
+  show  = true;
+  hidden = false;
   constructor(private playlistService:PlaylistService,private router:Router,
     private dialog:MatDialog,
     private snackBar:MatSnackBar) { }

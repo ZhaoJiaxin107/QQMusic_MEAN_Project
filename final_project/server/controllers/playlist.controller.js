@@ -25,7 +25,7 @@ module.exports.showPlaylists = (req,res,next) =>{
 
 module.exports.updatePlaylist =(req,res,next) =>{
     if (!ObjectId.isValid(req.params.id))
-    return res.status(400).send(`No record with given id : ${req.params.id}`);
+        return res.status(400).send(`No record with given id : ${req.params.id}`);
 
     var playlist = {
         status: req.body.status,
@@ -35,10 +35,11 @@ module.exports.updatePlaylist =(req,res,next) =>{
         title:req.body.title,
         artist:req.body.artist
     };
-    Playlist.findOneAndUpdate(req.params.id, { $set: playlist }, { new: true }, (err, doc) => {
-    if (!err) { res.send(doc); }
-    else { console.log('Error in Songs Update :' + JSON.stringify(err, undefined, 2)); }
-});
+    Playlist.findByIdAndUpdate(req.params.id, { $set: playlist }, { new: true }, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in Playlist Update :' + JSON.stringify(err, undefined, 2)); }
+    });
+
 }
 module.exports.deletePlaylist = (req,res,next) =>{
     if (!ObjectId.isValid(req.params.id))

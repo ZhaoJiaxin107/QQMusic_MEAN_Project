@@ -8,27 +8,25 @@
     <div style="overflow: auto; height: 450px;">
       <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
         <div class="m-3 input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Playlist ID</span>
+          </div>
+          <input readonly="readonly" type="text"
+          class="form-control"
+          name="_id"
+          #_id="ngModel"
+          [(ngModel)]="playlistService.selectedPlaylist._id">
+        </div>
+        <div class="m-3 input-group">
             <div class="input-group-prepend">
               <span class="input-group-text">Status</span>
             </div>
-            <input readonly="readonly" type="text"
+            <input type="text"
             class="form-control"
             name="status"
             #status="ngModel"
             [(ngModel)]="playlistService.selectedPlaylist.status">
           </div>
-
-          <div class="m-3 input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Playlist ID</span>
-              </div>
-              <input readonly="readonly" type="text"
-              class="form-control"
-              name="_id"
-              #_id="ngModel"
-              [(ngModel)]="playlistService.selectedPlaylist._id">
-            </div>
-
 
             <div class="m-3 input-group">
                 <div class="input-group-prepend">
