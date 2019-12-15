@@ -27,11 +27,11 @@ export class PlaylistService {
     return this.http.get(this.baseURL + '/playlist');
   }
 
-  putEmployee(play: Playlist) {
+  putPlaylist(play: Playlist) {
     return this.http.put(this.baseURL + '/playlist'+ `/${play._id}`, play);
   }
 
-  deleteEmployee(_id: string) {
+  deletePlaylist(_id: string) {
     return this.http.delete(this.baseURL + '/playlist' + `/${_id}`);
   }
 
