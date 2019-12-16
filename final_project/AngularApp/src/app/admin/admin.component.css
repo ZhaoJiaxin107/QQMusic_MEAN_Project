@@ -165,6 +165,7 @@ table * {
   text-align: center;
   font-size: 20px;
   font-weight: bold;
+  line-height: 3.0;
 }
 .tbody{
   text-align: center;
@@ -175,7 +176,7 @@ table * {
   font-family: OpenSans-Regular;
   font-size: 18px;
   color: #fff;
-  line-height: 2.5em;
+  line-height: 3.0;
   font-weight: unset;
 }
 
