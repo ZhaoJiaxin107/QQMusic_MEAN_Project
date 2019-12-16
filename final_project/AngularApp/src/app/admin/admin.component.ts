@@ -9,6 +9,7 @@ import { UserService } from '../shared/user.service';
 export class AdminComponent implements OnInit {
   userLists: Object;
   changeAdmin = true;
+  changeActivate=true;
   constructor(private userService:UserService,
               private router:Router) { }
 
@@ -33,9 +34,15 @@ export class AdminComponent implements OnInit {
         console.log("update successfully");
       }
     )
+  }
 
-   
-
+  AdminActivate(user) {
+    console.log(user);
+    this.userService.setActiveAdmin(user._id,this.changeActivate).subscribe(
+      res=>{
+        console.log("activate successfully");
+      }
+    )
   }
 
 }

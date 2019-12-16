@@ -36,6 +36,11 @@ export class UserService {
     return this.http.put(environment.apiBaseUrl + '/users' +`/${_id}`,value);
   }
 
+  setActiveAdmin(_id,value){
+    return this.http.put(environment.apiBaseUrl + '/adminset' +`/${_id}`,value);
+  }
+
+
   //Helper Methods
   setToken(token:string){
     localStorage.setItem('token',token);

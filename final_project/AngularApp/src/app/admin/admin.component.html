@@ -24,7 +24,9 @@
                                 <th class="text-center" class="thead">fullname</th>
                                 <th class="text-center" class="thead">email</th>
                                 <th class="text-center" class="thead">isAdmin</th>
-                                <th class="text-center" class="thead">Grant</th>
+                                <th class="text-center" class="thead">isActivate</th>
+                                <th class="text-center" class="thead">grant</th>
+                                <th class="text-center" class="thead">activate</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,8 +34,12 @@
                                 <td class="tbody column1">{{user.local.fullname}}</td>
                                 <td class="tbody column2">{{user.local.email}}</td>
                                 <td class="tbody column3">{{user.local.isAdmin}}</td>
-                                <td class="tbody column4">
+                                <th class="tbody column4">{{user.local.active}}</th>
+                                <td class="tbody column5">
                                     <button class="details" (click)="editAdmin(user)">grant</button>
+                                </td>
+                                <td class="tbody column6">
+                                    <button class="details" (click)="AdminActivate(user)">activate</button>
                                 </td>
                             </tr>
                         </tbody>

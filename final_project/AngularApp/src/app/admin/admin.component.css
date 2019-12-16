@@ -192,29 +192,31 @@ tbody tr:hover {
 }
 
 .column1 {
-  width: 70px;
+  width: 150px;
   padding-left: 40px;
 }
 
 .column2 {
-  width: 70px;
+  width: 150px;
   padding-left: 30px;
 }
 
 .column3 {
-  width: 70px;
+  width: 150px;
   padding-left: 20px;
 }
 
 .column4 {
-  width: 100px;
-  padding-left: 40px;
+  width: 150px;
+  padding-left: 20px;
 }
 
 .column5 {
-  width: 170px;
-  text-align: right;
+  width: 150px;
 }
+.column6 {
+    width: 150px;
+  }
 .details{
     background-color:rebeccapurple;
     border: none;

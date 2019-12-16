@@ -28,8 +28,8 @@ var userSchema = new mongoose.Schema({
             type:String
         },
         isAdmin:{
-            type: String,
-            default: "false"
+            type: Boolean,
+            default: false
         }
     
     },

@@ -178,7 +178,26 @@ module.exports.updateAdmin = (req, res, next) => {
   User.findByIdAndUpdate(
     req.params.id,
     {
-      $set: { ['local.isAdmin']: "true" }
+      $set: { ['local.isAdmin']: true}
+    },
+    {
+      new: true
+    },
+    (err, updated) => {
+      if (err) {
+        res.send("Error in updating admin privilege!");
+      } else {
+        res.json(updated);
+      }
+    }
+  );
+};
+
+module.exports.adminSetActive = (req, res, next) => {
+  User.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: { ['local.active']: true}
     },
     {
       new: true
