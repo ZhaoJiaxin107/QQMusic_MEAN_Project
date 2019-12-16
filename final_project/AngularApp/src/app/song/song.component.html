@@ -29,7 +29,7 @@
 					<br>
 					<mat-form-field class="field">
 						<input matInput (keyup)="applyFilter($event.target.value)"
-						placeholder="Search">
+						placeholder="Search" autocomplete="off">
 					</mat-form-field>
 					<div class="table"> 
 						<mat-table [dataSource] = "listData" matSort>

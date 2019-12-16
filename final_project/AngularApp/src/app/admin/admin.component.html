@@ -16,7 +16,7 @@
 					<br>
 					<br>
 					<div class="login-button-box" routerLink="/login" routerLinkActive="active">
-						<button>Login out</button>
+						<button>Log out</button>
                     </div>
                     <table *ngIf="userLists">
                         <thead>
@@ -58,15 +58,18 @@
                             <ng-container matColumnDef="status" *ngIf="!isLoading">
 								<mat-header-cell *matHeaderCellDef class="thead">status</mat-header-cell>
 								<mat-header-cell *matCellDef="let song" class="tbody column1">{{song.status}}</mat-header-cell>
-							</ng-container>
+                            </ng-container>
+            
 							<ng-container matColumnDef="title">
 								<mat-header-cell *matHeaderCellDef class="thead column1" mat-sort-header>Title</mat-header-cell>
 								<mat-header-cell *matCellDef="let song" class="tbody column2">{{song.title}}</mat-header-cell>
-							</ng-container>
-							
+                            </ng-container>
+                           
 							<ng-container matColumnDef="artist">
-								<mat-header-cell *matHeaderCellDef class="thead">Artist</mat-header-cell>
-								<mat-header-cell *matCellDef="let song" class="tbody column3">{{song.artist}}</mat-header-cell>
+                                <mat-header-cell *matHeaderCellDef class="thead">Artist</mat-header-cell>
+       
+                                <mat-header-cell *matCellDef="let song" class="tbody column3">{{song.artist}}</mat-header-cell>
+            
 							</ng-container>
 							
 							

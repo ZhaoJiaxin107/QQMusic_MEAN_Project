@@ -27,9 +27,10 @@ export class UserProfileComponent implements OnInit {
     this.userService.getUserProfile().subscribe(
       res=>{
         this.userDetails = res['user'];
-        if(this.userDetails.isAdmin == "true"){
+        console.log(this.userDetails);
+        /*if(this.userDetails.local.isAdmin==true){
           this.router.navigateByUrl('/admin');
-        }
+        }*/
       },
       
       err=>{}

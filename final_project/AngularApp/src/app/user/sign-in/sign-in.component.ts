@@ -10,6 +10,7 @@ import { AuthService,SocialUser,GoogleLoginProvider} from 'ng4-social-login';
 })
 export class SignInComponent implements OnInit {
   public user:any = SocialUser;
+  userDetails;
   constructor(private userService:UserService,private router:Router,
     private socialAuthService:AuthService) {}
   model = {
@@ -25,12 +26,17 @@ export class SignInComponent implements OnInit {
     this.userService.login(form.value).subscribe(
       res=>{
         this.userService.setToken(res['token']);
-        console.log(form.value);
-        if(form.value.email=="jzhao537@uwo.ca"){
-          this.router.navigateByUrl('/admin');
-        }else{
-          this.router.navigateByUrl('/userprofile');
-        }
+        //console.log(form.value);
+        this.userService.getUserProfile().subscribe(
+          res=>{
+            this.userDetails = res['user'];
+            if(this.userDetails.local.isAdmin == true){
+              this.router.navigateByUrl('/admin');
+            }else{
+              this.router.navigateByUrl('/userprofile');
+            }
+          }
+        )
       },
       err =>{
         if(err.status === 401)
