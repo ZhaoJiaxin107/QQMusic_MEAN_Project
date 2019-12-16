@@ -9,15 +9,15 @@ import { Review } from './review.model';
 export class ReviewService {
   selectedReview:Review;
   reviews:Review[];
-  readonly baseURL = 'http://localhost:3000/api';
+  readonly baseURL = 'http://localhost:3000/api/review';
 
   constructor(private http: HttpClient) { }
 
   postReview(rev: Review) {
-    return this.http.post(this.baseURL+'/review', rev);
+    return this.http.post(this.baseURL+'/secure/createReview', rev);
   }
 
   getReviewList() {
-    return this.http.get(this.baseURL+'/review');
+    return this.http.get(this.baseURL+'/open/readReview');
   }
 }

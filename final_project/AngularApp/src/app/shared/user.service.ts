@@ -17,31 +17,31 @@ export class UserService {
   constructor(private http:HttpClient) {}
   //Http Methods
   postUser(user:User){
-    return this.http.post(environment.apiBaseUrl+'/register',user,this.noAuthHeader);
+    return this.http.post(environment.apiBaseUrl+'/user/open/register',user,this.noAuthHeader);
   }
 
   login(authCredentials){
-    return this.http.post(environment.apiBaseUrl + '/authenticate',authCredentials,this.noAuthHeader);
+    return this.http.post(environment.apiBaseUrl + '/user/open/authenticate',authCredentials,this.noAuthHeader);
   }
 
   getUserProfile(){
-    return this.http.get(environment.apiBaseUrl+'/userProfile');
+    return this.http.get(environment.apiBaseUrl+'/user/open/userProfile');
   }
 
   getallUsers(){
-    return this.http.get(environment.apiBaseUrl+'/users');
+    return this.http.get(environment.apiBaseUrl+'/user/open/readUser');
   }
 
   grantAdmin(_id,value){
-    return this.http.put(environment.apiBaseUrl + '/users' +`/${_id}`,value);
+    return this.http.put(environment.apiBaseUrl + '/admin/secure/grantsm' +`/${_id}`,value);
   }
 
   setActiveAdmin(_id,value){
-    return this.http.put(environment.apiBaseUrl + '/adminset' +`/${_id}`,value);
+    return this.http.put(environment.apiBaseUrl + '/admin/secure/activateUser' +`/${_id}`,value);
   }
 
   setDeActiveAdmin(_id,value){
-    return this.http.put(environment.apiBaseUrl + '/adminsetdeactive' +`/${_id}`,value);
+    return this.http.put(environment.apiBaseUrl + '/admin/secure/deactivateUser' +`/${_id}`,value);
   }
 
 

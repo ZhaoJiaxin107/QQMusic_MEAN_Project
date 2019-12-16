@@ -16,28 +16,28 @@ export class PlaylistService {
     artist:""
   };
   playlists:Playlist[];
-  readonly baseURL = 'http://localhost:3000/api';
+  readonly baseURL = 'http://localhost:3000/api/playlist';
   constructor(private http:HttpClient) { }
 
   postPlaylist(play: Playlist) {
-    return this.http.post(this.baseURL + '/playlist', play);
+    return this.http.post(this.baseURL + '/secure/createPlaylist', play);
   }
 
   getPlaylist() {
-    return this.http.get(this.baseURL + '/playlist');
+    return this.http.get(this.baseURL + '/secure/readPlaylist');
   }
 
   getOnePlaylist(_id:string){
-    return this.http.get(this.baseURL + '/playlist'+`/${_id}`);
+    return this.http.get(this.baseURL + '/secure/readPlaylist'+`/${_id}`);
   }
 
 
   updatePlaylist(play: Playlist) {
-    return this.http.put(this.baseURL + '/playlist'+ `/${play._id}`, play);
+    return this.http.put(this.baseURL + '/secure/updatePlaylist'+ `/${play._id}`, play);
   }
 
   deletePlaylist(_id: string) {
-    return this.http.delete(this.baseURL + '/playlist' + `/${_id}`);
+    return this.http.delete(this.baseURL + '/secure/deletePlaylist' + `/${_id}`);
   }
 
 

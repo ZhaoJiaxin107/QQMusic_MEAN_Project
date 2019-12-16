@@ -86,11 +86,11 @@ module.exports.register =async (req,res,next) =>{
         // Create e-mail object to send to user
           
 					var email = {
-						from: 'QQ Music@qq music.com',
+						from: 'Localhost Staff, staff@localhost.com',
 						to: user.local.email,
 						subject: 'Localhost Activation Link',
 						text: 'Hello '+ user.local.fullname,
-            html: 'Hello<strong> ' + user.local.fullname + '</strong>,<br><br>You recently requested a new account activation link. Please click on the link below to complete your activation:<br><br><a href="http://localhost:3000/api/activate/' + user.local.temporarytoken + '">http://localhost:3000/api/activate/</a>'
+            html: 'Hello<strong> ' + user.local.fullname + '</strong>,<br><br>You recently requested a new account activation link. Please click on the link below to complete your activation:<br><br><a href="http://localhost:3000/api/user/activate/' + user.local.temporarytoken + '">http://localhost:3000/api/user/activate/</a>'
 
 					};
 					// Function to send e-mail to the user

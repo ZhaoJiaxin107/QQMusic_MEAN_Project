@@ -26,31 +26,31 @@ export class SongService {
   };
   songs:Song[];
 
-  readonly APIUrl ="http://localhost:3000/api";
+  readonly APIUrl ="http://localhost:3000/api/song";
   constructor(private http:HttpClient) { }
 
   getSongList():Observable<Song[]>{
-    return this.http.get<Song[]>(this.APIUrl+'/song');
+    return this.http.get<Song[]>(this.APIUrl+'/open/readSong');
   }
 
   getTrueSongList():Observable<Song[]>{
-    return this.http.get<Song[]>(this.APIUrl+'/truesong');
+    return this.http.get<Song[]>(this.APIUrl+'/open/readTruesong');
   }
 
   getOneSong(_id){
-    return this.http.get(this.APIUrl + '/song'+`/${_id}`);
+    return this.http.get(this.APIUrl + '/open/readSong'+`/${_id}`);
   }
 
-  postSong(s: Song) {
-    return this.http.post(this.APIUrl+'/song', s);
+  postSong(song: Song) {
+    return this.http.post(this.APIUrl+'/secure/createSong', song);
   }
 
   adminShowSong(_id,value){
-    return this.http.put(this.APIUrl + '/showsong' +`/${_id}`,value);
+    return this.http.put(this.APIUrl + '/secure/showSong' +`/${_id}`,value);
   }
 
   adminHideSong(_id,value){
-    return this.http.put(this.APIUrl + '/hidesong' +`/${_id}`,value);
+    return this.http.put(this.APIUrl + '/secure/hideSong' +`/${_id}`,value);
   }
 
 }

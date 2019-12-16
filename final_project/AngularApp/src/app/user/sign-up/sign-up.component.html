@@ -3,7 +3,7 @@
         <input class="input--style-3" type="text" #fullname = "ngModel" [(ngModel)]="userService.selectedUser.fullname" name="fullname" 
         placeholder="Enter fullname" required=true>
         <div *ngIf = "signUpForm.submitted && !fullname.valid">
-            <label *ngIf="fullname.errors.required" class = "validation-message">Email is required.</label>
+            <label *ngIf="fullname.errors.required" class = "validation-message">Fullname is required.</label>
         </div>
     </div>
     <div class="input-group">
