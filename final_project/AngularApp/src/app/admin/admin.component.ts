@@ -15,6 +15,7 @@ export class AdminComponent implements OnInit {
   userLists: Object;
   changeAdmin = true;
   changeActivate=true;
+  changeSong = true;
   listData:MatTableDataSource<any>;
   displayedColumns:string[]=['status','title','artist','option']
 
@@ -71,6 +72,24 @@ export class AdminComponent implements OnInit {
       this.listData = new MatTableDataSource(data);
       this.listData.sort = this.sort;
     });
+  }
+
+  hidesong(song){
+    console.log(song);
+    this.songService.adminHideSong(song._id,this.changeSong).subscribe(
+      res=>{
+        console.log("hide song successfully");
+      }
+     )
+    }
+
+  showsong(song){
+    console.log(song);
+    this.songService.adminShowSong(song._id,this.changeSong).subscribe(
+      res=>{
+        console.log("show song successfully");
+      }
+     )
   }
 
  

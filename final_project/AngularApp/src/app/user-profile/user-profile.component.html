@@ -72,6 +72,7 @@
                             <h5>You can add songs</h5>
                             <form #songForm="ngForm" (ngSubmit)="songForm.valid && onSubmit1(songForm)" autocomplete="off">
                                 <input type="hidden" name="header" #header="ngModel" [(ngModel)] = "songService.selectedSong.header">
+                                <input type="hidden" name="status" #status="ngModel" [(ngModel)] = "songService.selectedSong.status">
                                 <div class="row" width="50px" height ="30px">
                                     <div class="input-field col">
                                         <label>title*:</label><br>

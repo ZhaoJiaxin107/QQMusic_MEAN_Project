@@ -33,6 +33,10 @@ export class SongService {
     return this.http.get<Song[]>(this.APIUrl+'/song');
   }
 
+  getTrueSongList():Observable<Song[]>{
+    return this.http.get<Song[]>(this.APIUrl+'/truesong');
+  }
+
   getOneSong(_id){
     return this.http.get(this.APIUrl + '/song'+`/${_id}`);
   }
@@ -40,5 +44,14 @@ export class SongService {
   postSong(s: Song) {
     return this.http.post(this.APIUrl+'/song', s);
   }
+
+  adminShowSong(_id,value){
+    return this.http.put(this.APIUrl + '/showsong' +`/${_id}`,value);
+  }
+
+  adminHideSong(_id,value){
+    return this.http.put(this.APIUrl + '/hidesong' +`/${_id}`,value);
+  }
+
 }
 

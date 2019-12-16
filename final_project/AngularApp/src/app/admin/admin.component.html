@@ -74,9 +74,10 @@
 							
 							
 							<ng-container matColumnDef="option">
-								<mat-header-cell *matHeaderCellDef class="thead">Set hidden</mat-header-cell>
+								<mat-header-cell *matHeaderCellDef class="thead">&nbsp;&nbsp;Hide and Show</mat-header-cell>
 								<mat-cell *matCellDef="let song">
-									<button class="details">set</button>
+                                    <button class="details" (click)="hidesong(song)">hide</button>&nbsp;&nbsp;
+                                    <button class="details"  (click)="showsong(song)">show</button>
 								</mat-cell>
 							</ng-container>
 			

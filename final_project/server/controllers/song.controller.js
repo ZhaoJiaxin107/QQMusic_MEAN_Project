@@ -32,6 +32,14 @@ module.exports.showsongs = (req,res,next) =>{
     });
 }
 
+module.exports.showTruesongs = (req,res,next) =>{
+    Song.find({status:true},
+        (err,docs)=>{
+            if (!err) {res.send(docs); }
+            else { console.log('Error in Retriving Songs :' + JSON.stringify(err, undefined, 2));
+          }  });
+}
+
 module.exports.showOnesong = (req,res,next) =>{
     if (!ObjectId.isValid(req.params.id))
     return res.status(400).send(`No record with given id : ${req.params.id}`);
@@ -41,3 +49,41 @@ module.exports.showOnesong = (req,res,next) =>{
     else { console.log('Error in Retriving Songs :' + JSON.stringify(err, undefined, 2)); }
 });
 }
+
+module.exports.adminHideSong = (req, res, next) => {
+    Song.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: { status : false}
+      },
+      {
+        new: true
+      },
+      (err, updated) => {
+        if (err) {
+          res.send("Error in hide this song!");
+        } else {
+          res.json(updated);
+        }
+      }
+    );
+  };
+  
+  module.exports.adminShowSong = (req, res, next) => {
+    Song.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: { status : true}
+      },
+      {
+        new: true
+      },
+      (err, updated) => {
+        if (err) {
+          res.send("Error in show this song!");
+        } else {
+          res.json(updated);
+        }
+      }
+    );
+  };

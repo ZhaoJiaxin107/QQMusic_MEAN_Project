@@ -31,7 +31,7 @@ export class PlaylistComponent implements OnInit {
   }
 
   refreshSongList(){
-    this.songService.getSongList().subscribe(data=>{
+    this.songService.getTrueSongList().subscribe(data=>{
       this.listData = new MatTableDataSource(data);
       this.listData.sort = this.sort;
     });
