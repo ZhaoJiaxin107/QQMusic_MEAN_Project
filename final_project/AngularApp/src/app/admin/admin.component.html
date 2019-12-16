@@ -1,4 +1,3 @@
-<p>admin works!</p>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +16,7 @@
 					<br>
 					<br>
 					<div class="login-button-box" routerLink="/login" routerLinkActive="active">
-						<button>Login</button>
+						<button>Login out</button>
                     </div>
                     <table *ngIf="userLists">
                         <thead>
@@ -34,11 +33,7 @@
                                 <td class="tbody column2">{{user.local.email}}</td>
                                 <td class="tbody column3">{{user.local.isAdmin}}</td>
                                 <td class="tbody column4">
-                                    <p>True to grant</p>
-                                    <form (ngSubmit)="onSubmit()">
-                                        <input type="text" placeholder="true" [(ngModel)]="changeAdmin" name="changeAdmin">
-                                    </form>
-                                    <button class="details">Edit</button>
+                                    <button class="details" (click)="editAdmin(user)">grant</button>
                                 </td>
                             </tr>
                         </tbody>

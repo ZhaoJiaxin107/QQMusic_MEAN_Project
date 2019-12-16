@@ -8,7 +8,7 @@ import { UserService } from '../shared/user.service';
 })
 export class AdminComponent implements OnInit {
   userLists: Object;
-  changeAdmin: string;
+  changeAdmin = true;
   constructor(private userService:UserService,
               private router:Router) { }
 
@@ -24,6 +24,18 @@ export class AdminComponent implements OnInit {
       },
       err=>{}
     )
+  }
+  editAdmin(user) {
+    console.log(user);
+    this.userService.grantAdmin(user._id,this.changeAdmin).subscribe(
+      res=>{
+      
+        console.log("update successfully");
+      }
+    )
+
+   
+
   }
 
 }

@@ -32,6 +32,10 @@ export class UserService {
     return this.http.get(environment.apiBaseUrl+'/users');
   }
 
+  grantAdmin(_id,value){
+    return this.http.put(environment.apiBaseUrl + '/users' +`/${_id}`,value);
+  }
+
   //Helper Methods
   setToken(token:string){
     localStorage.setItem('token',token);
@@ -61,4 +65,6 @@ export class UserService {
     else
       return false;
   }
+
+
 }
