@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Playlist = mongoose.model('Playlist');
 var ObjectId = require('mongoose').Types.ObjectId;
+//create playlist
 module.exports.addPlaylist = (req, res, next) => {
     var playlist = new Playlist();
     playlist.status = req.body.status;
@@ -16,13 +17,14 @@ module.exports.addPlaylist = (req, res, next) => {
             return next(err);
     });
 }
+//read playlist
 module.exports.showPlaylists = (req,res,next) =>{
     Playlist.find((err, docs) => {
         if (!err) { res.send(docs); }
         else { console.log('Error in Retriving songs :' + JSON.stringify(err, undefined, 2)); }
     });
 }
-
+//update playlist
 module.exports.updatePlaylist =(req,res,next) =>{
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
@@ -41,6 +43,7 @@ module.exports.updatePlaylist =(req,res,next) =>{
     });
 
 }
+//delete playlist
 module.exports.deletePlaylist = (req,res,next) =>{
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);

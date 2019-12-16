@@ -101,6 +101,7 @@ module.exports.register =async (req,res,next) =>{
       }
     });
   }
+  //activate user
   module.exports.activateUser  = async (req,res,next) =>{
     await User.findOne({ "local.temporarytoken": req.params.token }, function(err, user) {
 			if (err) throw err; // Throw error if cannot login
@@ -135,7 +136,7 @@ module.exports.register =async (req,res,next) =>{
 			
   }
 
-
+//authenticate user
 module.exports.authenticate  = (req,res,next) =>{
   //call for passaprt authentication
   passport.authenticate('local',(err,user,info) =>{
@@ -149,7 +150,7 @@ module.exports.authenticate  = (req,res,next) =>{
     else return res.status(404).json(info);
   })(req,res);
 }
-
+// confirm login user
 module.exports.userProfile = (req,res,next) =>{
   User.findOne({_id:req._id},
     (err,user) =>{
@@ -160,20 +161,22 @@ module.exports.userProfile = (req,res,next) =>{
     }
   );
 }
-
+//google oauth
 module.exports.googleOAuth = async(req,res,next) =>{
   console.log('req.user',req.user);
   const token = signToken(req.user);
   res.status(200).json({ token });
 
 }
+
+//read all users
 module.exports.showUsers = (req,res,next) =>{
   User.find((err, docs) => {
       if (!err) {res.send(docs); }
       else { console.log('Error in Retriving Users:' + JSON.stringify(err, undefined, 2)); }
   });
 }
-
+//admin grant SM privileges
 module.exports.updateAdmin = (req, res, next) => {
   User.findByIdAndUpdate(
     req.params.id,
@@ -192,7 +195,7 @@ module.exports.updateAdmin = (req, res, next) => {
     }
   );
 };
-
+//admin set user activated
 module.exports.adminSetActive = (req, res, next) => {
   User.findByIdAndUpdate(
     req.params.id,
@@ -211,7 +214,7 @@ module.exports.adminSetActive = (req, res, next) => {
     }
   );
 };
-
+//admin set user deactivated
 module.exports.adminSetDeActive = (req, res, next) => {
   User.findByIdAndUpdate(
     req.params.id,

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 var sd = require('silly-datetime');
 const Review = mongoose.model('Review');
 var ObjectId = require('mongoose').Types.ObjectId;
+//create review
 module.exports.addReview = (req, res, next) => {
     var review = new Review();
     review.title = req.body.title;
@@ -16,6 +17,7 @@ module.exports.addReview = (req, res, next) => {
             return next(err);
     });
 }
+//read reviews
 module.exports.showreviews = (req,res,next) =>{
     Review.find((err, docs) => {
         if (!err) {res.send(docs); }

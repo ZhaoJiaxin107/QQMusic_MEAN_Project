@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const Song = mongoose.model('Song');
 var ObjectId = require('mongoose').Types.ObjectId;
+//create a song
 module.exports.addsong = (req, res, next) => {
     var song = new Song();
     song.status = req.body.status;
@@ -24,14 +25,14 @@ module.exports.addsong = (req, res, next) => {
             return next(err);
     });
 }
-
+//read songs
 module.exports.showsongs = (req,res,next) =>{
     Song.find((err, docs) => {
         if (!err) {res.send(docs); }
         else { console.log('Error in Retriving Songs :' + JSON.stringify(err, undefined, 2)); }
     });
 }
-
+//read unhidden songs
 module.exports.showTruesongs = (req,res,next) =>{
     Song.find({status:true},
         (err,docs)=>{
@@ -39,7 +40,7 @@ module.exports.showTruesongs = (req,res,next) =>{
             else { console.log('Error in Retriving Songs :' + JSON.stringify(err, undefined, 2));
           }  });
 }
-
+// read specific song
 module.exports.showOnesong = (req,res,next) =>{
     if (!ObjectId.isValid(req.params.id))
     return res.status(400).send(`No record with given id : ${req.params.id}`);
@@ -49,7 +50,7 @@ module.exports.showOnesong = (req,res,next) =>{
     else { console.log('Error in Retriving Songs :' + JSON.stringify(err, undefined, 2)); }
 });
 }
-
+//admin hide song
 module.exports.adminHideSong = (req, res, next) => {
     Song.findByIdAndUpdate(
       req.params.id,
@@ -68,7 +69,7 @@ module.exports.adminHideSong = (req, res, next) => {
       }
     );
   };
-  
+  //admin show song
   module.exports.adminShowSong = (req, res, next) => {
     Song.findByIdAndUpdate(
       req.params.id,
