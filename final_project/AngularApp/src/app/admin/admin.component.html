@@ -1,0 +1,54 @@
+<p>admin works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Index Page</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+					<div class="theme">
+						<h1>QQ Music</h1><br>
+						<h3>Administrator</h3>
+					</div>
+					<br>
+					<br>
+					<div class="login-button-box" routerLink="/login" routerLinkActive="active">
+						<button>Login</button>
+                    </div>
+                    <table *ngIf="userLists">
+                        <thead>
+                            <tr>
+                                <th class="text-center" class="thead">fullname</th>
+                                <th class="text-center" class="thead">email</th>
+                                <th class="text-center" class="thead">isAdmin</th>
+                                <th class="text-center" class="thead">Grant</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of userLists">
+                                <td class="tbody column1">{{user.local.fullname}}</td>
+                                <td class="tbody column2">{{user.local.email}}</td>
+                                <td class="tbody column3">{{user.local.isAdmin}}</td>
+                                <td class="tbody column4">
+                                    <p>True to grant</p>
+                                    <form (ngSubmit)="onSubmit()">
+                                        <input type="text" placeholder="true" [(ngModel)]="changeAdmin" name="changeAdmin">
+                                    </form>
+                                    <button class="details">Edit</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+</body>
+</html>

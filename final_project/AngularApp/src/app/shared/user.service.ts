@@ -28,6 +28,10 @@ export class UserService {
     return this.http.get(environment.apiBaseUrl+'/userProfile');
   }
 
+  getallUsers(){
+    return this.http.get(environment.apiBaseUrl+'/users');
+  }
+
   //Helper Methods
   setToken(token:string){
     localStorage.setItem('token',token);

@@ -26,7 +26,12 @@ var userSchema = new mongoose.Schema({
         },
         temporarytoken:{
             type:String
+        },
+        isAdmin:{
+            type: String,
+            default: "false"
         }
+    
     },
     google:{
         id:{

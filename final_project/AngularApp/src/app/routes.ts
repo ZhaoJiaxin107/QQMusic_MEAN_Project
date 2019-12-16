@@ -10,6 +10,7 @@ import { ReviewdetailsComponent } from './reviewdetails/reviewdetails.component'
 import { PlaylistComponent } from './playlist/playlist.component';
 import { PlaylistdetailComponent } from './playlistdetail/playlistdetail.component';
 import { UpdateplaylistComponent } from './updateplaylist/updateplaylist.component';
+import { AdminComponent } from './admin/admin.component';
 export const appRoutes:Routes = [
     {
         path:'signup',component:UserComponent,
@@ -39,6 +40,9 @@ export const appRoutes:Routes = [
     },
     {
         path:'updateplaylist/:id',component:UpdateplaylistComponent
+    },
+    {
+        path:'admin',component:AdminComponent
     },
     {
         path:'',redirectTo:'/home',pathMatch:'full'

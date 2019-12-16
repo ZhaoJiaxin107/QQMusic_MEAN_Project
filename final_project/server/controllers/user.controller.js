@@ -167,3 +167,30 @@ module.exports.googleOAuth = async(req,res,next) =>{
   res.status(200).json({ token });
 
 }
+module.exports.showUsers = (req,res,next) =>{
+  User.find((err, docs) => {
+      if (!err) {res.send(docs); }
+      else { console.log('Error in Retriving Users:' + JSON.stringify(err, undefined, 2)); }
+  });
+}
+
+module.exports.updateAdmin = (req, res, next) => {
+  User.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: { ['local.isAdmin']: "true" }
+    },
+    {
+      new: true
+    },
+    (err, updated) => {
+      if (err) {
+        res.send("Error in updating admin privilege!");
+      } else {
+        res.json(updated);
+      }
+    }
+  );
+};
+
+

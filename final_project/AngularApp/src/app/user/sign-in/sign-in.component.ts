@@ -25,7 +25,12 @@ export class SignInComponent implements OnInit {
     this.userService.login(form.value).subscribe(
       res=>{
         this.userService.setToken(res['token']);
-        this.router.navigateByUrl('/userprofile');
+        console.log(form.value);
+        if(form.value.email=="jzhao537@uwo.ca"){
+          this.router.navigateByUrl('/admin');
+        }else{
+          this.router.navigateByUrl('/userprofile');
+        }
       },
       err =>{
         if(err.status === 401)
