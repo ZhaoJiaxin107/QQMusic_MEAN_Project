@@ -10,8 +10,8 @@
 			<div class="wrap-table100">
 				<div class="table100">
 					<div class="theme">
-						<h1>QQ Music</h1><br>
-						<h3>Administrator</h3>
+						<h1>QQ Music Administrator</h1><br>
+						<h3>Oprtations on users</h3>
 					</div>
 					<br>
 					<br>
@@ -27,6 +27,7 @@
                                 <th class="text-center" class="thead">isActivate</th>
                                 <th class="text-center" class="thead">grant</th>
                                 <th class="text-center" class="thead">activate</th>
+                                <th class="text-center" class="thead">Deactivate</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,13 +42,42 @@
                                 <td class="tbody column6">
                                     <button class="details" (click)="AdminActivate(user)">activate</button>
                                 </td>
+                                <td class="tbody column7">
+                                    <button class="details" (click)="AdmindeActivate(user)">Deactivate</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
-
-
+                    <h3>Operations on songs</h3>
+                    <div class="table"> 
+						<mat-table [dataSource] = "listData" matSort>
+							<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+                            <ng-container matColumnDef="status">
+								<mat-header-cell *matHeaderCellDef class="thead">status</mat-header-cell>
+								<mat-header-cell *matCellDef="let song" class="tbody column1">{{song.status}}</mat-header-cell>
+							</ng-container>
+							<ng-container matColumnDef="title">
+								<mat-header-cell *matHeaderCellDef class="thead column1" mat-sort-header>Title</mat-header-cell>
+								<mat-header-cell *matCellDef="let song" class="tbody column2">{{song.title}}</mat-header-cell>
+							</ng-container>
+							
+							<ng-container matColumnDef="artist">
+								<mat-header-cell *matHeaderCellDef class="thead">Artist</mat-header-cell>
+								<mat-header-cell *matCellDef="let song" class="tbody column3">{{song.artist}}</mat-header-cell>
+							</ng-container>
+							
+							
+							<ng-container matColumnDef="option">
+								<mat-header-cell *matHeaderCellDef class="thead">Set hidden</mat-header-cell>
+								<mat-cell *matCellDef="let song">
+									<button class="details">set</button>
+								</mat-cell>
+							</ng-container>
+			
+						</mat-table>
                     </div>
-
+                    </div>
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ const Song = mongoose.model('Song');
 var ObjectId = require('mongoose').Types.ObjectId;
 module.exports.addsong = (req, res, next) => {
     var song = new Song();
+    song.status = req.body.status;
     song.header = req.body.header;
     song.title = req.body.title;
     song.artist = req.body.artist;

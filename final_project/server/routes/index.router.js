@@ -27,4 +27,5 @@ router.get('/playlist/:id',ctrlPlaylist.showOneplaylist);
 router.get('/users',ctrlUser.showUsers);
 router.put('/users/:id',ctrlUser.updateAdmin);
 router.put('/adminset/:id',ctrlUser.adminSetActive);
+router.put('/adminsetdeactive/:id',ctrlUser.adminSetDeActive);
 module.exports = router;

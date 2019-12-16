@@ -157,7 +157,11 @@
     padding-left: 10px;
   }
   
-  
+  .p-t-12{
+    float: left;
+    padding-left: 5px;
+    padding-top:10px;
+  }
   .p-t-30 {
     padding-top: 30px;
   }

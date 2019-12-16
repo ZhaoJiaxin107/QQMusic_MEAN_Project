@@ -212,4 +212,22 @@ module.exports.adminSetActive = (req, res, next) => {
   );
 };
 
+module.exports.adminSetDeActive = (req, res, next) => {
+  User.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: { ['local.active']: false}
+    },
+    {
+      new: true
+    },
+    (err, updated) => {
+      if (err) {
+        res.send("Error in updating admin privilege!");
+      } else {
+        res.json(updated);
+      }
+    }
+  );
+};
 

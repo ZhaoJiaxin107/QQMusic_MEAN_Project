@@ -109,6 +109,12 @@ iframe {
   font-family: fantasy;
   color:gainsboro;
 }
+h3{
+  font-family: fantasy;
+  color:gainsboro;
+  text-align: center;
+  padding:30px;
+}
 .intro{
   font-style: italic;
   color: antiquewhite;
@@ -226,7 +232,7 @@ tbody tr:hover {
     display: inline-block;
     font-size: 16px;
     width:80px;
-    height:25px;
+    height:30px;
     border-radius: 4px;
 }
 .details:hover{

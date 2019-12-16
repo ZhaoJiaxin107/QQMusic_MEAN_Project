@@ -1,4 +1,5 @@
 export interface Song {
+    status:boolean;
     header:string;
     _id:string;
     title:string;

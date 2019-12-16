@@ -40,6 +40,10 @@ export class UserService {
     return this.http.put(environment.apiBaseUrl + '/adminset' +`/${_id}`,value);
   }
 
+  setDeActiveAdmin(_id,value){
+    return this.http.put(environment.apiBaseUrl + '/adminsetdeactive' +`/${_id}`,value);
+  }
+
 
   //Helper Methods
   setToken(token:string){

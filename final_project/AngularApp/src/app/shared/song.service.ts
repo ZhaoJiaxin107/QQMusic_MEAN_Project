@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class SongService {
   selectedSong:Song = {
+    status:true,
     header:"TAG",
     _id:"",
     title:"",

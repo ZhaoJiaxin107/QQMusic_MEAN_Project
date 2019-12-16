@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 var songSchema = new mongoose.Schema({
+    status:{ type:Boolean,default:true},
     header:{ type:String,default:'TAG'},
     title:{ type:String,required:true},
     artist:{ type:String,required:true },
