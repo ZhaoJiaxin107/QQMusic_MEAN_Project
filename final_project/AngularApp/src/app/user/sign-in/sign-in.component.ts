@@ -49,7 +49,7 @@ export class SignInComponent implements OnInit {
   googlelogin(){
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((userData)=>{
       this.externaluser = userData;
-      setTimeout(() => this.router.navigateByUrl('/playlist'), 3000);
+      setTimeout(() => this.router.navigateByUrl('/googlepage'), 3000);
     });
   }
 }

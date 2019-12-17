@@ -21,7 +21,7 @@ export class SongService {
     track:null,
     genre:"",
     review:"",
-    num:null,
+    num:2,
     score:null
   };
   songs:Song[];

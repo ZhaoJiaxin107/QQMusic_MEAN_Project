@@ -1,0 +1,69 @@
+<p>googlepage works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Index Page</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+					<div class="theme">
+						<h1>QQ Music Google Login</h1><br>
+						<h3>Which makes life better</h3>
+					</div>
+					<br>
+					<div class="intro">
+						<h4>QQ Music is affiliated with China's online music service leader Tencent Music Entertainment Group and is a leading domestic music streaming platform. 
+							Since its establishment in 2005, the total number of QQ music registered users has reached 800 million. 
+							With high-quality content as the core and big data and Internet technology as the driving force, QQ Music is committed to creating a “smart” pan-music ecosystem with “sound” and providing users with a diversified music life experience. 
+							On November 8, 2019, QQ Music officially launched an open platform.
+						</h4>
+					</div>
+					<br>
+					<div class="login-button-box" routerLink="/login" routerLinkActive="active">
+						<button>Logout</button>
+					</div>
+					<h3 class="hotsong">Hot Songs</h3>
+					<br>
+					<mat-form-field class="field">
+						<input matInput (keyup)="applyFilter($event.target.value)"
+						placeholder="Search" autocomplete="off">
+					</mat-form-field>
+					<div class="table"> 
+						<mat-table [dataSource] = "listData" matSort>
+							<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+							<mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+							<ng-container matColumnDef="title">
+								<mat-header-cell *matHeaderCellDef class="thead column1" mat-sort-header>Title</mat-header-cell>
+								<mat-header-cell *matCellDef="let song" class="tbody column1">{{song.title}}</mat-header-cell>
+							</ng-container>
+							
+							<ng-container matColumnDef="artist">
+								<mat-header-cell *matHeaderCellDef class="thead">Artist</mat-header-cell>
+								<mat-header-cell *matCellDef="let song" class="tbody column2">{{song.artist}}</mat-header-cell>
+							</ng-container>
+							<ng-container matColumnDef="album">
+								<mat-header-cell *matHeaderCellDef class="thead">Album</mat-header-cell>
+								<mat-header-cell *matCellDef="let song" class="tbody column3">{{song.album}}</mat-header-cell>
+							</ng-container>
+							<ng-container matColumnDef="score">
+								<mat-header-cell *matHeaderCellDef class="thead" mat-sort-header>Score</mat-header-cell>
+								<mat-header-cell *matCellDef="let song" class="tbody column4">{{song.score}}</mat-header-cell>
+							</ng-container>
+                            <ng-container matColumnDef="option">
+								<mat-header-cell *matHeaderCellDef class="thead">Add to playlist</mat-header-cell>
+								<mat-cell *matCellDef="let song">
+									<button class="details">Add</button>
+								</mat-cell>
+							</ng-container>
+						</mat-table>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

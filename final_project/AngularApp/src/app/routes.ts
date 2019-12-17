@@ -11,6 +11,7 @@ import { PlaylistComponent } from './playlist/playlist.component';
 import { PlaylistdetailComponent } from './playlistdetail/playlistdetail.component';
 import { UpdateplaylistComponent } from './updateplaylist/updateplaylist.component';
 import { AdminComponent } from './admin/admin.component';
+import { GooglepageComponent } from './googlepage/googlepage.component';
 export const appRoutes:Routes = [
     {
         path:'signup',component:UserComponent,
@@ -43,6 +44,9 @@ export const appRoutes:Routes = [
     },
     {
         path:'admin',component:AdminComponent
+    },
+    {
+        path:'googlepage',component:GooglepageComponent
     },
     {
         path:'',redirectTo:'/home',pathMatch:'full'

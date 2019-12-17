@@ -131,6 +131,8 @@
                                             <input type="text" #review="ngModel" [(ngModel)] = "songService.selectedSong.review" name="review" placeholder="Input review">
                                         </div>
                                     </div>
+                                    <input type="hidden" name="num" #status="ngModel" [(ngModel)] = "songService.selectedSong.num">
+
                                     <div class="row" height ="30px">
                                         <div class="input-field" width="200px">
                                             <label>score</label><br>
@@ -143,7 +145,7 @@
                                     
                                             <button class="btn btn-custom right" type="submit">Submit</button>
                                             <button class="btn btn-custom right" type="button" (click)="onLogout()">Log out</button>
-                                            <button class="btn btn-custom" type="button" routerLink="/playlist" routerLinkActive="active">Enter Playlist</button>
+                                            <button class="btn btn-custom" type="button" routerLink="/playlist" routerLinkActive="active">Enter Songlist</button>
 
                                         </div>
                                     </div>
