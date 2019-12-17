@@ -36,8 +36,8 @@ export class PlaylistService {
     return this.http.put(this.baseURL + '/secure/updatePlaylist'+ `/${play._id}`, play);
   }
 
-  deletePlaylist(_id: string) {
-    return this.http.delete(this.baseURL + '/secure/deletePlaylist' + `/${_id}`);
+  deletePlaylist(play: Playlist) {
+    return this.http.delete(this.baseURL + '/secure/deletePlaylist' + `/${play._id}`);
   }
 
 

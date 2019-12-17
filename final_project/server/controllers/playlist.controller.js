@@ -48,7 +48,7 @@ module.exports.deletePlaylist = (req,res,next) =>{
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
 
-    Playlist.findOneAndDelete(req.params.id, (err, doc) => {
+    Playlist.findByIdAndDelete(req.params.id, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Songs Delete :' + JSON.stringify(err, undefined, 2)); }
     });

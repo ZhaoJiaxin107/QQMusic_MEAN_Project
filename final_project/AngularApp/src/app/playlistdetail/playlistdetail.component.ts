@@ -33,9 +33,10 @@ export class PlaylistdetailComponent implements OnInit {
     });
   }
   
-  onDelete(_id:string){
+  onDelete(play:Playlist){
+    console.log(play.title);
     if(confirm('Are you sure to delete this record?') == true){
-      this.playlistService.deletePlaylist(_id).subscribe((res)=>{
+      this.playlistService.deletePlaylist(play).subscribe((res)=>{
         this.refreshPlaylist();
         console.log("Deleted Successfully!");
       });
