@@ -62,7 +62,7 @@ module.exports.register =async (req,res,next) =>{
     const user = new User({ 
       method: 'local',
       local: {
-        fullname:fullname,
+        fullname:fullname.replace(/</g,'&lt;').replace(/>/g,'&gt;'),
         email: email, 
         password: password,
         temporarytoken:JWT.sign({fullname:fullname,email:email},secret,{expiresIn:'24h'})
@@ -141,13 +141,13 @@ module.exports.authenticate  = (req,res,next) =>{
   //call for passaprt authentication
   passport.authenticate('local',(err,user,info) =>{
     //error from passport middleware
-    if(err) return res.status(400).json(err);
+    if(!user) return res.status(404).json(info);
     //registered user
     else if(user.local.active == false) 
           return res.status(401).json({success: false, message: 'Please contact with administrator!'});
     else if (user.local.active == true) 
           return res.status(200).json({"token":user.generateJwt()});
-    else return res.status(404).json(info);
+    else return res.status(400).json(err);
   })(req,res);
 }
 // confirm login user

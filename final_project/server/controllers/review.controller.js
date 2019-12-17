@@ -5,9 +5,9 @@ var ObjectId = require('mongoose').Types.ObjectId;
 //create review
 module.exports.addReview = (req, res, next) => {
     var review = new Review();
-    review.title = req.body.title;
+    review.title = req.body.title.replace(/</g,'&lt;').replace(/>/g,'&gt;');
     review.fullname = req.body.fullname;
-    review.text = req.body.text;
+    review.text = req.body.text.replace(/</g,'&lt;').replace(/>/g,'&gt;');
     review.rating = req.body.rating;
     review.time = sd.format(new Date(),'YYYY-MM-DD HH:mm:ss');
     review.save((err, doc) => {

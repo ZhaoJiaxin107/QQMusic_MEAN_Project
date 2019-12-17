@@ -5,10 +5,10 @@ var ObjectId = require('mongoose').Types.ObjectId;
 module.exports.addPlaylist = (req, res, next) => {
     var playlist = new Playlist();
     playlist.status = req.body.status;
-    playlist.playlisttitle = req.body.playlisttitle;
-    playlist.description = req.body.description;
+    playlist.playlisttitle = req.body.playlisttitle.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    playlist.description = req.body.description.replace(/</g,'&lt;').replace(/>/g,'&gt;');
     playlist.fullname = req.body.fullname;
-    playlist.title = req.body.title;
+    playlist.title = req.body.title.replace(/</g,'&lt;').replace(/>/g,'&gt;');
     playlist.artist = req.body.artist;
     playlist.save((err, doc) => {
         if (!err)
@@ -31,11 +31,11 @@ module.exports.updatePlaylist =(req,res,next) =>{
 
     var playlist = {
         status: req.body.status,
-        playlisttitle: req.body.playlisttitle,
-        description: req.body.description,
+        playlisttitle: req.body.playlisttitle.replace(/</g,'&lt;').replace(/>/g,'&gt;'),
+        description: req.body.description.replace(/</g,'&lt;').replace(/>/g,'&gt;'),
         fullname: req.body.fullname,
-        title:req.body.title,
-        artist:req.body.artist
+        title:req.body.title.replace(/</g,'&lt;').replace(/>/g,'&gt;'),
+        artist:req.body.artist.replace(/</g,'&lt;').replace(/>/g,'&gt;')
     };
     Playlist.findByIdAndUpdate(req.params.id, { $set: playlist }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }
