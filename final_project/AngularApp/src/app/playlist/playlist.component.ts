@@ -19,6 +19,7 @@ export class PlaylistComponent implements OnInit {
   songTitle;
   songArtist;
   userDetails;
+  username;
   constructor(private songService:SongService,
     private playlistService:PlaylistService,
     private userService:UserService,
@@ -35,6 +36,8 @@ export class PlaylistComponent implements OnInit {
       res=>{
         this.userDetails = res['user'];
         console.log(this.userDetails);
+        this.username = this.userDetails.local.fullname;
+        console.log(this.username);
       },
       
       err=>{}
