@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
 import { Playlist } from '../shared/playlist.model';
 import { PlaylistService } from '../shared/playlist.service';
+import { UserService } from '../shared/user.service';
 @Component({
   selector: 'app-playlist',
   templateUrl: './playlist.component.html',
@@ -17,8 +18,10 @@ import { PlaylistService } from '../shared/playlist.service';
 export class PlaylistComponent implements OnInit {
   songTitle;
   songArtist;
+  userDetails;
   constructor(private songService:SongService,
     private playlistService:PlaylistService,
+    private userService:UserService,
     private router:Router) { }
   
   listData:MatTableDataSource<any>;
@@ -28,6 +31,14 @@ export class PlaylistComponent implements OnInit {
 
   ngOnInit() {
     this.refreshSongList();
+    this.userService.getUserProfile().subscribe(
+      res=>{
+        this.userDetails = res['user'];
+        console.log(this.userDetails);
+      },
+      
+      err=>{}
+    );
   }
 
   refreshSongList(){

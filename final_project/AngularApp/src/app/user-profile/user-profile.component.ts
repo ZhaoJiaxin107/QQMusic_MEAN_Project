@@ -28,9 +28,6 @@ export class UserProfileComponent implements OnInit {
       res=>{
         this.userDetails = res['user'];
         console.log(this.userDetails);
-        /*if(this.userDetails.local.isAdmin==true){
-          this.router.navigateByUrl('/admin');
-        }*/
       },
       
       err=>{}

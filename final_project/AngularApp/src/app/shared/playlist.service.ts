@@ -11,7 +11,7 @@ export class PlaylistService {
     status:true,
     playlisttitle:"Star",
     description:"Become Stars",
-    fullname:"JiaxinZhao",
+    fullname:"",
     title:"",
     artist:""
   };
