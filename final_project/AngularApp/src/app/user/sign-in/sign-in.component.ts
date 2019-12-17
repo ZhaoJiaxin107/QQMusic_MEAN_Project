@@ -9,7 +9,7 @@ import { AuthService,SocialUser,GoogleLoginProvider} from 'ng4-social-login';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-  public user:any = SocialUser;
+  public externaluser:any = SocialUser;
   userDetails;
   constructor(private userService:UserService,private router:Router,
     private socialAuthService:AuthService) {}
@@ -48,7 +48,8 @@ export class SignInComponent implements OnInit {
   }
   googlelogin(){
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((userData)=>{
-      this.user = userData;
+      this.externaluser = userData;
+      setTimeout(() => this.router.navigateByUrl('/playlist'), 3000);
     });
   }
 }
